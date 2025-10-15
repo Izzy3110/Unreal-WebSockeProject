@@ -34,9 +34,16 @@ public class Postgres : ModuleRules
             string[] Dlls =
             {
                 "libpq.dll",
+
+                // OpenSSL 3
                 "libssl-3-x64.dll",
                 "libcrypto-3-x64.dll",
-                // Uncomment/add if your libpq depends on these:
+
+                // OpenSSL 1.1  <-- add these
+                // "libssl-1_1-x64.dll",
+                // "libcrypto-1_1-x64.dll",
+
+                // Optional
                 "libiconv-2.dll",
                 "libintl-9.dll",
                 "zlib1.dll",
@@ -45,6 +52,7 @@ public class Postgres : ModuleRules
                 "krb5_64.dll",
                 "gssapi64.dll",
             };
+
 
             foreach (var dll in Dlls)
             {

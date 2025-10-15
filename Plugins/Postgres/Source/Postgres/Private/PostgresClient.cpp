@@ -29,18 +29,19 @@ void UPostgresClient::SetConnectionString(const FString& InConnStr)
 
 bool UPostgresClient::Connect()
 {
+#if PLATFORM_WINDOWS
+	if (!Postgres_EnsureLibpqLoaded())
+	{
+		UE_LOG(LogPostgres, Error, TEXT("libpq preload failed. See earlier [Postgres] log for missing DLL(s)."));
+		return false;
+	}
+#endif
+	
 	FScopeLock Lock(&ConnMutex);
 
-	if (Conn && PQstatus(Conn) == CONNECTION_OK)
-	{
-		return true;
-	}
+	if (Conn && PQstatus(Conn) == CONNECTION_OK) return true;
 
-	if (Conn)
-	{
-		PQfinish(Conn);
-		Conn = nullptr;
-	}
+	if (Conn) { PQfinish(Conn); Conn = nullptr;	}
 
 	FTCHARToUTF8 ConnUtf8(*ConnStr);
 	Conn = PQconnectdb(ConnUtf8.Get());
