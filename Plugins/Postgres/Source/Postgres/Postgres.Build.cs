@@ -49,8 +49,7 @@ public class Postgres : ModuleRules
                 "zlib1.dll",
                 "libzstd.dll",
                 "liblz4.dll",
-                "krb5_64.dll",
-                "gssapi64.dll",
+                "libwinpthread-1.dll",
             };
 
 

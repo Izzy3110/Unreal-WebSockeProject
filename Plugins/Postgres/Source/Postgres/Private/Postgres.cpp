@@ -90,8 +90,7 @@ bool Postgres_EnsureLibpqLoaded()
         TEXT("zlib1.dll"),
         TEXT("libzstd.dll"),
         TEXT("liblz4.dll"),
-        TEXT("krb5_64.dll"),
-        TEXT("gssapi64.dll"),
+        TEXT("libwinpthread-1.dll"), // <-- add
     };
 
     // Load crypto/ssl (whichever variant exists)
