@@ -9,8 +9,8 @@ public class Postgres : ModuleRules
         // Keep it simple (avoids Live Coding LNK2011 quirks for tiny modules)
         PCHUsage = PCHUsageMode.NoPCHs;
 
-        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine" });
-        PrivateDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine" });
+        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "Projects" });
+        PrivateDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "Projects" });
 
         string ThirdPartyPath = Path.Combine(ModuleDirectory, "../../ThirdParty/PostgreSQL");
         PublicIncludePaths.Add(Path.Combine(ThirdPartyPath, "include"));

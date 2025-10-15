@@ -6,6 +6,7 @@
 #include "HAL/PlatformProcess.h"
 #include "Modules/ModuleManager.h"
 #include "Misc/ScopeLock.h"
+#include "Interfaces/IPluginManager.h"   // <— add this
 
 // ---------- Module implementation (do NOT re-declare the class) ----------
 void FPostgresModule::StartupModule() {}
@@ -48,20 +49,33 @@ static void GetSearchDirs(TArray<FString>& Out)
 {
     Out.Reset();
 
-    // Plugin bin dir (…/Plugins/Postgres/Binaries/Win64)
-    const FString ModulePath = FModuleManager::Get().GetModuleFilename(TEXT("Postgres"));
-    Out.Add(FPaths::GetPath(ModulePath));
+    // Prefer the plugin’s own Binaries dir (works in Editor & packaged)
+    if (TSharedPtr<IPlugin> Plugin = IPluginManager::Get().FindPlugin(TEXT("Postgres")))
+    {
+#if PLATFORM_WINDOWS
+        const TCHAR* PlatBin = TEXT("Win64");
+#elif PLATFORM_LINUX
+        const TCHAR* PlatBin = TEXT("Linux");
+#elif PLATFORM_MAC
+        const TCHAR* PlatBin = TEXT("Mac");
+#else
+        const TCHAR* PlatBin = TEXT("");
+#endif
+        const FString PluginBin = FPaths::Combine(Plugin->GetBaseDir(), TEXT("Binaries"), PlatBin);
+        Out.Add(PluginBin);
+    }
 
     // Project binaries
     Out.Add(FPaths::Combine(FPaths::ProjectDir(), TEXT("Binaries/Win64")));
 
-    // Engine binaries (UE may stage there depending on config)
+    // Engine binaries
     Out.Add(FPaths::Combine(FPaths::EngineDir(), TEXT("Binaries/Win64")));
 
     // ThirdParty bin inside the plugin (dev convenience)
     Out.Add(FPaths::ConvertRelativePathToFull(
         FPaths::Combine(FPaths::ProjectDir(), TEXT("Plugins/Postgres/ThirdParty/PostgreSQL/bin/Win64"))));
 }
+
 #endif // PLATFORM_WINDOWS
 
 bool Postgres_EnsureLibpqLoaded()

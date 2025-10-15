@@ -10,7 +10,6 @@
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
-	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
@@ -20,5 +19,8 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
-	]
+	],
+    "CanContainContent": true,
+    "EnabledByDefault": true,
+    "SupportedTargetPlatforms": [ "Win64" ]
 }
