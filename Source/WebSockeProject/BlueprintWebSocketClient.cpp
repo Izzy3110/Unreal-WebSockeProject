@@ -42,8 +42,8 @@ void ABlueprintWebSocketClient::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-// Constructs the WSURL by a Server Host string
-FString ABlueprintWebSocketClient::ConstructWSURL(const FString& Host, const int32& Port, const FString& Endpoint, bool bSecure)
+// Constructs the Websocket-URL by a Server Host string
+FString ABlueprintWebSocketClient::ConstructWebSocketURL(const FString& Host, const int32& Port, const FString& Endpoint, bool bSecure)
 {
 	if (!WebSocketHandler)
 	{

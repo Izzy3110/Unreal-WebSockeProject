@@ -49,7 +49,7 @@ public:
 	FString CurrentUrl;
 	
 	UFUNCTION(BlueprintCallable, Category = "WebSocket|Utilities")
-	FString ConstructWSURL(const FString& Host, const int32& ServerPort, const FString& Endpoint, bool bSecure);
+	FString ConstructWebSocketURL(const FString& Host, const int32& ServerPort, const FString& Endpoint, bool bSecure);
 
 	UFUNCTION(BlueprintCallable, Category = "WebSocket|Connection")
 	void Connect(const FString& Url);
