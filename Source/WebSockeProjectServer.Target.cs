@@ -1,9 +1,8 @@
 using UnrealBuildTool;
-using System.Collections.Generic;
 
 public class WebSockeProjectServerTarget : TargetRules
 {
-    public WebSockeProjectServerTarget(TargetInfo Target) : base(Target)
+    public WebSockeProjectServerTarget(TargetInfo target) : base(target)
     {
         Type = TargetType.Server;
         DefaultBuildSettings = BuildSettingsVersion.V5;
