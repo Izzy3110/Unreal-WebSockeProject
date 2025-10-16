@@ -2,12 +2,13 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "Engine/EngineTypes.h" // ESpawnActorCollisionHandlingMethod
 #include "PostgresClient.generated.h"
 
 // Match libpq's typedef exactly to avoid redefinition clashes.
 // (libpq does: typedef struct pg_conn PGconn;)
 struct pg_conn;
-typedef struct pg_conn PGconn;
+typedef pg_conn PGconn;
 
 USTRUCT(BlueprintType)
 struct FPostgresQueryResultRow
@@ -59,13 +60,33 @@ public:
 	FPostgresQueryResult Exec(const FString& Sql);
 
 	/** Blocking, parameterized. Use $1, $2... in Sql and fill Params in the same order. */
-	UFUNCTION(BlueprintCallable, Category="Postgres")
-	FPostgresQueryResult ExecParams(const FString& SqlDollarNumbered, const TArray<FString>& Params);
-
+	// UFUNCTION(BlueprintCallable, Category="Postgres")
+	// FPostgresQueryResult ExecParams(const FString& SqlDollarNumbered, const TArray<FString>& Params);
+	
+	UFUNCTION(BlueprintCallable, Category="Postgres|Entities",
+		  meta=(WorldContext="WorldContextObject",
+				AdvancedDisplay="CollisionHandlingOverride",
+				CPP_Default_CollisionHandlingOverride="AdjustIfPossibleButAlwaysSpawn"))
+	AActor* GetEntityActorFromDB(
+		UObject* WorldContextObject,
+		const FString& LevelName,
+		ESpawnActorCollisionHandlingMethod CollisionHandlingOverride =
+			ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn);
+	
 	/** Async, parameterized. Runs on the thread pool and returns to the game thread. */
 	UFUNCTION(BlueprintCallable, Category="Postgres", meta=(DisplayName="Exec Async"))
 	void ExecAsync(const FString& SqlDollarNumbered, const TArray<FString>& Params, const FPostgresQueryResultDelegate& OnCompleted);
 
+	UFUNCTION(BlueprintCallable, Category="Postgres|Entities")
+	bool AddEntity(
+		const FString& LevelName,
+		const FString& ClassName,
+		FVector LocalRotation,
+		FVector LocalLocation,
+		FVector WorldRotation,
+		FVector WorldLocation,
+		FVector WorldScale);
+	
 protected:
 	virtual void BeginDestroy() override;
 

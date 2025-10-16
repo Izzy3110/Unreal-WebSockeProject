@@ -14,7 +14,13 @@
 		}
 	],
 	"Plugins": [
-        { "Name": "Postgres", "Enabled": true },
+		{
+			"Name": "Postgres",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		},
 		{
 			"Name": "ModelingToolsEditorMode",
 			"Enabled": true

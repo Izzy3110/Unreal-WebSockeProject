@@ -13,12 +13,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f736192f-0d22-465e-90ca-6394aec10049" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Plugins/CommonUtils/Source/CommonUtils/Public/ContentClassFinder.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/CommonUtils/Source/CommonUtils/Public/ContentClassFinder.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/MyBlueprintWebSocketClient.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MyBlueprintWebSocketClient.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Lvl_ThirdPerson.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Lvl_ThirdPerson.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/Postgres/Postgres.uplugin" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Postgres/Postgres.uplugin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/Postgres/Source/Postgres/Postgres.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Postgres/Source/Postgres/Postgres.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/Postgres/Content/Examples/BP_ConnectionExample.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Postgres/Content/Examples/BP_ConnectionExample.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugins/Postgres/Source/Postgres/Private/Postgres.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Postgres/Source/Postgres/Private/Postgres.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebSockeProject.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/WebSockeProject.sln.DotSettings.user" afterDir="false" />
     </list>
@@ -38,6 +38,8 @@
     <setting file="file://$PROJECT_DIR$/../EpicGames/UE_5.6/Engine/Source/Runtime/Engine/Private/Actor.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../EpicGames/UE_5.6/Engine/Source/Runtime/Engine/Private/Components/MeshComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../EpicGames/UE_5.6/Engine/Source/Runtime/Engine/Private/KismetSystemLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Plugins/CommonUtils/Source/CommonUtils/Public/ContentClassFinder.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Plugins/CommonUtils/Source/CommonUtils/Public/ContentClassFinder.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/WebSockeProject/BlueprintWebSocketClient.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/WebSockeProject/BlueprintWebSocketClient.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/WebSockeProject/FWebSocketHandler.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -54,24 +56,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "C/C++ Project.WebSockeProject.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "UnrealLogSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;C/C++ Project.WebSockeProject.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;UnrealLogSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CidrLocalAttachDebugger.recentlyUsed">
       <recent name="com.jetbrains.rider.cpp.debugger.RiderCppLLDBDriverConfiguration" />
@@ -240,7 +242,9 @@
       <workItem from="1760491832830" duration="9000" />
       <workItem from="1760491982902" duration="1242000" />
       <workItem from="1760493312353" duration="1347000" />
-      <workItem from="1760496485405" duration="5331000" />
+      <workItem from="1760496485405" duration="6066000" />
+      <workItem from="1760576492006" duration="723000" />
+      <workItem from="1760577270800" duration="16000" />
     </task>
     <servers />
   </component>

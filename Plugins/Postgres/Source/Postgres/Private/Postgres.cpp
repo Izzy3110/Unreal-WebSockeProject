@@ -1,7 +1,5 @@
 // Must be first for explicit PCH
 #include "Postgres.h"
-#include "Runtime/Launch/Resources/Version.h"
-
 #include "Misc/Paths.h"
 #include "HAL/PlatformProcess.h"
 #include "Modules/ModuleManager.h"

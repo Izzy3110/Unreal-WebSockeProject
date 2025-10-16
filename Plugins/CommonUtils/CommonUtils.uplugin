@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.1.0",
+	"FriendlyName": "Common Utils",
+	"Description": "Shared helpers for content/class lookups",
+	"Category": "Utilities",
+	"CreatedBy": "Sascha Frank",
+	"CreatedByURL": "",
+    "EnabledByDefault": true,
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+    "CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "CommonUtils",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
