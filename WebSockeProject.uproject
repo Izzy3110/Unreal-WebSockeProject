@@ -3,7 +3,6 @@
 	"EngineAssociation": "5.6",
 	"Category": "",
 	"Description": "",
-    "Author": "Sascha Frank",
 	"Modules": [
 		{
 			"Name": "WebSockeProject",
@@ -19,19 +18,25 @@
 			"Name": "Postgres",
 			"Enabled": true,
 			"SupportedTargetPlatforms": [
-				"Win64", "Linux"
+				"Win64",
+				"Linux"
 			]
 		},
 		{
 			"Name": "MQTTPlugin",
 			"Enabled": true,
 			"SupportedTargetPlatforms": [
-				"Win64", "Linux"
+				"Win64",
+				"Linux"
 			]
 		},
 		{
 			"Name": "WebSocketsHelper",
-			"Enabled": true
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux"
+			]
 		},
 		{
 			"Name": "ModelingToolsEditorMode",
@@ -47,7 +52,7 @@
 		},
 		{
 			"Name": "VaRest",
-			"Enabled": false
+			"Enabled": true
 		},
 		{
 			"Name": "JWT",
@@ -111,6 +116,42 @@
 		},
 		{
 			"Name": "WaterAdvanced",
+			"Enabled": true
+		},
+		{
+			"Name": "GridInventory",
+			"Enabled": true
+		},
+		{
+			"Name": "MetaHuman",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux"
+			]
+		},
+		{
+			"Name": "MetaHumanCalibrationProcessing",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux"
+			]
+		},
+		{
+			"Name": "MetaHumanCoreTech",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux"
+			]
+		},
+		{
+			"Name": "MetaHumanCharacter",
+			"Enabled": true
+		},
+		{
+			"Name": "MetaHumanLiveLink",
 			"Enabled": true
 		}
 	]
