@@ -22,5 +22,5 @@
 	],
     "CanContainContent": true,
     "EnabledByDefault": true,
-    "SupportedTargetPlatforms": [ "Win64" ]
+    "SupportedTargetPlatforms": [ "Win64", "Linux" ]
 }

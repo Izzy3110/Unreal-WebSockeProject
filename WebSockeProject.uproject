@@ -3,6 +3,7 @@
 	"EngineAssociation": "5.6",
 	"Category": "",
 	"Description": "",
+    "Author": "Sascha Frank",
 	"Modules": [
 		{
 			"Name": "WebSockeProject",
@@ -39,7 +40,7 @@
 		},
 		{
 			"Name": "VaRest",
-			"Enabled": true
+			"Enabled": false
 		},
 		{
 			"Name": "JWT",
@@ -91,7 +92,7 @@
 		},
 		{
 			"Name": "Buoyancy",
-			"Enabled": true
+			"Enabled": false
 		},
 		{
 			"Name": "Water",

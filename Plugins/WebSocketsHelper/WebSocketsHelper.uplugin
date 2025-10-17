@@ -13,7 +13,8 @@
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
-	"Modules": [
+    "SupportedTargetPlatforms": [ "Win64", "Linux" ],
+	"Modules": [        
 		{
 			"Name": "WebSocketsHelper",
 			"Type": "Runtime",
