@@ -1,0 +1,26 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "MQTT Plugin",
+	"Description": "Cross-platform MQTT Client Plugin using Eclipse Paho.",
+	"Category": "Networking",
+	"CreatedBy": "Sascha Frank",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+    "EnabledByDefault": true,
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "MQTTPlugin",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+    "SupportedTargetPlatforms": ["Win64", "Linux"]
+}

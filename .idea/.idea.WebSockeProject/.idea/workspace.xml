@@ -13,14 +13,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f736192f-0d22-465e-90ca-6394aec10049" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Plugins/CommonUtils/Source/CommonUtils/Public/ContentClassFinder.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/CommonUtils/Source/CommonUtils/Public/ContentClassFinder.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/MQTTPlugin.uplugin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/Resources/Icon128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/MQTTPlugin.Build.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/Private/MQTTClientHelper.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/Private/MQTTPlugin.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/Public/MQTTClientHelper.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/Public/MQTTPlugin.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/Public/MQTTSubsystem.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/Public/MQTTSubsystem.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/edl-v10" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/epl-v20" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/notice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/MQTTAsync_publish.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/MQTTAsync_publish_time.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/MQTTAsync_subscribe.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/MQTTClient_publish.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/MQTTClient_publish_async.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/MQTTClient_subscribe.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/paho_c_pub.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/paho_c_sub.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/paho_cs_pub.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/paho_cs_sub.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/Linux/doc/Eclipse Paho C/samples/pubsub_opts.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/MQTTAsync_publish.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/MQTTAsync_publish_time.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/MQTTAsync_subscribe.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/MQTTClient_publish.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/MQTTClient_publish_async.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/MQTTClient_subscribe.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/paho_c_pub.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/paho_c_sub.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/paho_cs_pub.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/paho_cs_sub.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/doc/win64/samples/pubsub_opts.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/include/MQTTAsync.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/include/MQTTClient.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/include/MQTTClientPersistence.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/include/MQTTExportDeclarations.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/include/MQTTProperties.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/include/MQTTReasonCodes.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/include/MQTTSubscribeOpts.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/cmake/eclipse-paho-mqtt-c/eclipse-paho-mqtt-cConfig-debug.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/cmake/eclipse-paho-mqtt-c/eclipse-paho-mqtt-cConfig.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/cmake/eclipse-paho-mqtt-c/eclipse-paho-mqtt-cConfigVersion.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/libpaho-mqtt3a.so.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/libpaho-mqtt3a.so.1.3.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/libpaho-mqtt3as.so.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/libpaho-mqtt3as.so.1.3.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/libpaho-mqtt3c.so.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/libpaho-mqtt3c.so.1.3.15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/libpaho-mqtt3cs.so.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MQTTPlugin/ThirdParty/paho/lib/Linux/libpaho-mqtt3cs.so.1.3.15" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/MyBlueprintWebSocketClient.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MyBlueprintWebSocketClient.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/Postgres/Content/Examples/BP_ConnectionExample.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Postgres/Content/Examples/BP_ConnectionExample.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/Postgres/Source/Postgres/Private/Postgres.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Postgres/Source/Postgres/Private/Postgres.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebSockeProject.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/WebSockeProject.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebSockeProject.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/WebSockeProject.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +87,11 @@
     <setting file="file://$PROJECT_DIR$/../EpicGames/UE_5.6/Engine/Source/Runtime/Engine/Private/Actor.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../EpicGames/UE_5.6/Engine/Source/Runtime/Engine/Private/Components/MeshComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../EpicGames/UE_5.6/Engine/Source/Runtime/Engine/Private/KismetSystemLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Plugins/CommonUtils/Source/CommonUtils/Public/ContentClassFinder.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plugins/CommonUtils/Source/CommonUtils/Public/ContentClassFinder.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/Private/MQTTClientHelper.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/Public/MQTTClientHelper.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/Public/MQTTSubsystem.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Plugins/MQTTPlugin/Source/MQTTPlugin/Public/MQTTSubsystem.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/WebSockeProject/BlueprintWebSocketClient.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/WebSockeProject/BlueprintWebSocketClient.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/WebSockeProject/FWebSocketHandler.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -245,6 +297,8 @@
       <workItem from="1760496485405" duration="6066000" />
       <workItem from="1760576492006" duration="723000" />
       <workItem from="1760577270800" duration="16000" />
+      <workItem from="1760677069406" duration="804000" />
+      <workItem from="1760677886330" duration="1977000" />
     </task>
     <servers />
   </component>
