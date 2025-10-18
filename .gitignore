@@ -83,3 +83,5 @@ Plugins/Postgres/ThirdParty/PostgreSQL/postgresql-17.6-2-windows-x64-binaries.zi
 .sync_427d60357a83.db
 .sync_427d60357a83.db-wal
 Desktop.ini
+Plugins/GridInventory/
+.sync_427d60357a83.db-shm
