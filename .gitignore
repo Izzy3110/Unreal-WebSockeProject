@@ -88,3 +88,4 @@ Plugins/GridInventory/
 Plugins/Postgres/ThirdParty/PostgreSQL/postgresql-17.6-2-windows-x64-binaries/
 .sync_f1b87ac2f445.db
 .sync_f1b87ac2f445.db-wal
+*.db-shm
