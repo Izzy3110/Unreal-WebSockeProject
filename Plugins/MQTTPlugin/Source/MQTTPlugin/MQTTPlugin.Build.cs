@@ -24,6 +24,10 @@ public class MQTTPlugin : ModuleRules
 
         PublicIncludePaths.Add(IncludePath);
 
+        // --- Default Unreal behavior ---
+        bEnableExceptions = true;
+        bUseRTTI = false; // ❗ Always false for UObject-based modules
+
         // --- Platform specific linking ---
         if (Target.Platform == UnrealTargetPlatform.Win64)
         {
@@ -31,7 +35,6 @@ public class MQTTPlugin : ModuleRules
             string FullLibPath = Path.Combine(LibPath, LibName);
             PublicAdditionalLibraries.Add(FullLibPath);
 
-            // Optional: load DLL at runtime if not statically linked
             string DllPath = Path.Combine(LibPath, "paho-mqtt3a.dll");
             if (File.Exists(DllPath))
             {
@@ -43,7 +46,6 @@ public class MQTTPlugin : ModuleRules
         }
         else if (Target.Platform == UnrealTargetPlatform.Linux)
         {
-            // Link against shared library .so
             string LibName = "libpaho-mqtt3a.so";
             string FullLibPath = Path.Combine(LibPath, LibName);
             PublicAdditionalLibraries.Add(FullLibPath);
@@ -51,8 +53,5 @@ public class MQTTPlugin : ModuleRules
             RuntimeDependencies.Add("$(BinaryOutputDir)/libpaho-mqtt3a.so", FullLibPath);
             PublicDefinitions.Add("WITH_MQTT_LINUX=1");
         }
-
-        bEnableExceptions = true;
-        bUseRTTI = true;
     }
 }

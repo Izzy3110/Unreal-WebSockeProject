@@ -66,27 +66,27 @@ public class MySQL : ModuleRules
 
             if (Target.Platform == UnrealTargetPlatform.Win64)
             {
-                platformString = "Windows";
+                platformString = "Win64";
                 libExtension = ".lib";
                 binExtension = ".dll";
                 PublicDefinitions.Add("NTDDI_WIN7SP1");
             }
             else if (Target.Platform == UnrealTargetPlatform.LinuxArm64)
             {
-                platformString = Path.Combine("Linux", "arm64");
+                platformString = "Linux-arm64";
                 libExtension = ".so";
                 binExtension = ".so";
             }
             else if (Target.Platform == UnrealTargetPlatform.Linux)
             {
-                platformString = Path.Combine("Linux", "x64");
+                platformString = "Linux-x64";
                 libExtension = ".so";
                 binExtension = ".so";
             }
           
 
             string mySQLPath = Path.Combine(ThirdPartyPath, "MariaDB");
-            string mySQLlibraryPath = Path.Combine(mySQLPath, "libraries", platformString);
+            string mySQLlibraryPath = Path.Combine(mySQLPath, "lib", platformString);
             string BinariesDir = ProjectBinariesPath;
             
             string pluginpath = Path.Combine(mySQLlibraryPath, "plugin");

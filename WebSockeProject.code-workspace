@@ -1,0 +1,1541 @@
+{
+	"folders": [
+		{
+			"name": "WebSockeProject",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "/home/unreal/UnrealEngine"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off",
+		"terminal.integrated.env.linux": {
+			"PATH": "/home/unreal/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64:${env:PATH}",
+			"DOTNET_ROOT": "/home/unreal/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64",
+			"DOTNET_HOST_PATH": "/home/unreal/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64/dotnet",
+			"DOTNET_MULTILEVEL_LOOKUP": "0",
+			"DOTNET_ROLL_FORWARD": "LatestMajor"
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "WebSockeProject Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProject Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProject Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProject Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProject Linux Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProject Linux Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject Linux Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"Linux",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProject LinuxArm64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProject LinuxArm64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProject LinuxArm64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProject LinuxArm64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProject LinuxArm64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProject LinuxArm64 Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProject",
+					"LinuxArm64",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectEditor Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectEditor",
+					"Linux",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectEditor Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectEditor",
+					"Linux",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectEditor Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectEditor Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectEditor",
+					"Linux",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectEditor Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectEditor",
+					"Linux",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectEditor Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectEditor",
+					"Linux",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectEditor Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectEditor Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectEditor",
+					"Linux",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectEditor Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectEditor",
+					"Linux",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectEditor Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectEditor",
+					"Linux",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectEditor Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectEditor Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectEditor",
+					"Linux",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectServer Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectServer Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectServer Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectServer Linux Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectServer Linux Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer Linux Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"Linux",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectServer LinuxArm64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Debug",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectServer LinuxArm64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectServer LinuxArm64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Development",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectServer LinuxArm64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Test",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"WebSockeProjectServer LinuxArm64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"label": "WebSockeProjectServer LinuxArm64 Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"WebSockeProjectServer",
+					"LinuxArm64",
+					"Shipping",
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/unreal/UnrealEngine"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch WebSockeProject (Debug)",
+				"request": "launch",
+				"program": "/home/unreal/Unreal-WebSockeProject/Binaries/Linux/WebSockeProject-Linux-Debug",
+				"preLaunchTask": "WebSockeProject Linux Debug Build",
+				"args": [
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProject (DebugGame)",
+				"request": "launch",
+				"program": "/home/unreal/Unreal-WebSockeProject/Binaries/Linux/WebSockeProject-Linux-DebugGame",
+				"preLaunchTask": "WebSockeProject Linux DebugGame Build",
+				"args": [
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProject (Development)",
+				"request": "launch",
+				"program": "/home/unreal/Unreal-WebSockeProject/Binaries/Linux/WebSockeProject",
+				"preLaunchTask": "WebSockeProject Linux Development Build",
+				"args": [
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProject (Test)",
+				"request": "launch",
+				"program": "/home/unreal/Unreal-WebSockeProject/Binaries/Linux/WebSockeProject-Linux-Test",
+				"preLaunchTask": "WebSockeProject Linux Test Build",
+				"args": [
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProject (Shipping)",
+				"request": "launch",
+				"program": "/home/unreal/Unreal-WebSockeProject/Binaries/Linux/WebSockeProject-Linux-Shipping",
+				"preLaunchTask": "WebSockeProject Linux Shipping Build",
+				"args": [
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProjectEditor (Debug)",
+				"request": "launch",
+				"program": "/home/unreal/UnrealEngine/Engine/Binaries/Linux/UnrealEditor-Linux-Debug",
+				"preLaunchTask": "WebSockeProjectEditor Linux Debug Build",
+				"args": [
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject"
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProjectEditor (DebugGame)",
+				"request": "launch",
+				"program": "/home/unreal/UnrealEngine/Engine/Binaries/Linux/UnrealEditor-Linux-DebugGame",
+				"preLaunchTask": "WebSockeProjectEditor Linux DebugGame Build",
+				"args": [
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject"
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProjectEditor (Development)",
+				"request": "launch",
+				"program": "/home/unreal/UnrealEngine/Engine/Binaries/Linux/UnrealEditor",
+				"preLaunchTask": "WebSockeProjectEditor Linux Development Build",
+				"args": [
+					"/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject"
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProjectServer (Debug)",
+				"request": "launch",
+				"program": "/home/unreal/Unreal-WebSockeProject/Binaries/Linux/WebSockeProjectServer-Linux-Debug",
+				"preLaunchTask": "WebSockeProjectServer Linux Debug Build",
+				"args": [
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProjectServer (DebugGame)",
+				"request": "launch",
+				"program": "/home/unreal/Unreal-WebSockeProject/Binaries/Linux/WebSockeProjectServer-Linux-DebugGame",
+				"preLaunchTask": "WebSockeProjectServer Linux DebugGame Build",
+				"args": [
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProjectServer (Development)",
+				"request": "launch",
+				"program": "/home/unreal/Unreal-WebSockeProject/Binaries/Linux/WebSockeProjectServer",
+				"preLaunchTask": "WebSockeProjectServer Linux Development Build",
+				"args": [
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProjectServer (Test)",
+				"request": "launch",
+				"program": "/home/unreal/Unreal-WebSockeProject/Binaries/Linux/WebSockeProjectServer-Linux-Test",
+				"preLaunchTask": "WebSockeProjectServer Linux Test Build",
+				"args": [
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Launch WebSockeProjectServer (Shipping)",
+				"request": "launch",
+				"program": "/home/unreal/Unreal-WebSockeProject/Binaries/Linux/WebSockeProjectServer-Linux-Shipping",
+				"preLaunchTask": "WebSockeProjectServer Linux Shipping Build",
+				"args": [
+				],
+				"cwd": "/home/unreal/UnrealEngine",
+				"type": "cppdbg",
+				"visualizerFile": "/home/unreal/UnrealEngine/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true,
+				"sourceFileMap": {
+					"/UEVFS/Unreal-WebSockeProject": "/home/unreal/Unreal-WebSockeProject",
+					"/UEVFS/Root": "/home/unreal/UnrealEngine"
+				}
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Linux Development Build",
+				"program": "/home/unreal/UnrealEngine/Engine/Build/BatchFiles/RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=/home/unreal/Unreal-WebSockeProject/WebSockeProject.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"env": {
+					"PATH": "/home/unreal/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64:${env:PATH}",
+					"DOTNET_ROOT": "/home/unreal/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64",
+					"DOTNET_HOST_PATH": "/home/unreal/UnrealEngine/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64/dotnet",
+					"DOTNET_MULTILEVEL_LOOKUP": "0",
+					"DOTNET_ROLL_FORWARD": "LatestMajor"
+				},
+				"console": "internalConsole",
+				"internalConsoleOptions": "openOnSessionStart",
+				"stopAtEntry": false,
+				"cwd": "/home/unreal/UnrealEngine"
+			}
+		]
+	}
+}
