@@ -13,7 +13,7 @@ This Unreal Engine plugin provides a convenient wrapper around the WebSockets mo
 
 ## Requirements
 
-- Unreal Engine 4.x or later
+- Unreal Engine 5.6.x or later
 
 ## Installation
 
