@@ -4,25 +4,25 @@ using UnrealBuildTool;
 
 public class WebSockeProject : ModuleRules
 {
-	public WebSockeProject(ReadOnlyTargetRules Target) : base(Target)
+	public WebSockeProject(ReadOnlyTargetRules target) : base(target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[]
-		{
-			"Core", 
-			"CoreUObject", 
-			"Engine", 
-			"InputCore", 
-			"WebSockets", 
-			"Json", 
-			"JsonUtilities"
-		});
+		PublicDependencyModuleNames.AddRange(
+			[
+				"Core",
+				"CoreUObject",
+				"Engine",
+				"InputCore",
+				"WebSockets",
+				"Json",
+				"JsonUtilities"
+			]);
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+		PrivateDependencyModuleNames.AddRange([]);
 
 		// Uncomment if you are using Slate UI
-		PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
+		PrivateDependencyModuleNames.AddRange(["Slate", "SlateCore"]);
 		
 		// Uncomment if you are using online features
 		PrivateDependencyModuleNames.Add("OnlineSubsystem");

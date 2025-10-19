@@ -1,4 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 #include "BlueprintWebSocketClient.h"
 #include "Modules/ModuleManager.h"          // FModuleManager
 #include "Misc/SecureHash.h"                // FSHA1

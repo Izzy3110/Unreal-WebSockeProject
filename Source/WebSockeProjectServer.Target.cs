@@ -7,6 +7,7 @@ public class WebSockeProjectServerTarget : TargetRules
         Type = TargetType.Server;
         DefaultBuildSettings = BuildSettingsVersion.V5;
         IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_6;
-        ExtraModuleNames.Add("WebSockeProject");
+        
+        ExtraModuleNames.AddRange( ["WebSockeProject"]);
     }
 }
