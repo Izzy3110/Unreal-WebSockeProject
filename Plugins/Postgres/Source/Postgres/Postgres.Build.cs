@@ -1,38 +1,37 @@
 using UnrealBuildTool;
 using System.IO;
-using System;
 
 public class Postgres : ModuleRules
 {
-    public Postgres(ReadOnlyTargetRules Target) : base(Target)
+    public Postgres(ReadOnlyTargetRules target) : base(target)
     {
         // Keep it simple (avoids Live Coding LNK2011 quirks for tiny modules)
         PCHUsage = PCHUsageMode.NoPCHs;
 
-        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "Projects" });
-        PrivateDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "Projects" });
+        PublicDependencyModuleNames.AddRange(["Core", "CoreUObject", "Engine", "Projects"] );
+        PrivateDependencyModuleNames.AddRange(["Core", "CoreUObject", "Engine", "Projects"]);
 
-        string ThirdPartyPath = Path.Combine(ModuleDirectory, "../../ThirdParty/PostgreSQL");
-        PublicIncludePaths.Add(Path.Combine(ThirdPartyPath, "include"));
+        var thirdPartyPath = Path.Combine(ModuleDirectory, "../../ThirdParty/PostgreSQL");
+        PublicIncludePaths.Add(Path.Combine(thirdPartyPath, "include"));
 
         if (Target.Platform == UnrealTargetPlatform.Win64)
         {
-            string LibPath = Path.Combine(ThirdPartyPath, "lib", "Win64");
-            string BinPath = Path.Combine(ThirdPartyPath, "bin", "Win64");
+            var libPath = Path.Combine(thirdPartyPath, "lib", "Win64");
+            var binPath = Path.Combine(thirdPartyPath, "bin", "Win64");
 
-            PublicAdditionalLibraries.Add(Path.Combine(LibPath, "libpq.lib"));
+            PublicAdditionalLibraries.Add(Path.Combine(libPath, "libpq.lib"));
             PublicDelayLoadDLLs.Add("libpq.dll"); // we’ll preload at runtime too
 
             // Where UBT normally puts editor runtime files
-            string TargetOutDir = "$(TargetOutputDir)";
+            const string targetOutDir = "$(TargetOutputDir)";
 
             // Also stage to the plugin's own Binaries/Win64 so the DLLs sit next to UnrealEditor-Postgres.dll
-            string PluginBinDir = Path.GetFullPath(Path.Combine(ModuleDirectory, "../../Binaries/Win64"));
-            Directory.CreateDirectory(PluginBinDir);
+            var pluginBinDir = Path.GetFullPath(Path.Combine(ModuleDirectory, "../../Binaries/Win64"));
+            Directory.CreateDirectory(pluginBinDir);
 
             // List all possible deps your libpq build might need (only staged if present)
-            string[] Dlls =
-            {
+            string[] dlls =
+            [
                 "libpq.dll",
 
                 // OpenSSL 3
@@ -50,53 +49,75 @@ public class Postgres : ModuleRules
                 "libzstd.dll",
                 "liblz4.dll",
                 "libwinpthread-1.dll",
-            };
+            ];
 
 
-            foreach (var dll in Dlls)
+            foreach (var dll in dlls)
             {
-                string src = Path.Combine(BinPath, dll);
+                var src = Path.Combine(binPath, dll);
                 if (File.Exists(src))
                 {
                     // Project binaries (what you already had)
-                    RuntimeDependencies.Add($"{TargetOutDir}/{dll}", src);
+                    RuntimeDependencies.Add($"{targetOutDir}/{dll}", src);
 
                     // Plugin binaries (so they’re beside UnrealEditor-Postgres.dll)
-                    RuntimeDependencies.Add(Path.Combine(PluginBinDir, dll), src);
+                    RuntimeDependencies.Add(Path.Combine(pluginBinDir, dll), src);
                 }
             }
         }
         else if (Target.Platform == UnrealTargetPlatform.Linux)
-        {
-            string LibPath = Path.Combine(ThirdPartyPath, "lib", "Linux");
-            string BinPath = Path.Combine(ThirdPartyPath, "bin", "Linux");
+		{
+			var libPath = Path.Combine(thirdPartyPath, "lib", "Linux");
+			var binPath = Path.Combine(thirdPartyPath, "bin", "Linux");
 
-            PublicAdditionalLibraries.Add(Path.Combine(LibPath, "libpq.so"));
-            RuntimeDependencies.Add("$(TargetOutputDir)/libpq.so", Path.Combine(BinPath, "libpq.so"));
+			const string soName = "libpq.so";
+			var pqFromLib = Path.Combine(libPath, soName);
+			var pqFromBin = Path.Combine(binPath, soName);
+			var pqSrc = File.Exists(pqFromLib) ? pqFromLib : pqFromBin;
 
-            string[] Deps = { "libssl.so.3", "libcrypto.so.3" };
-            foreach (var dep in Deps)
-            {
-                string src = Path.Combine(BinPath, dep);
-                if (File.Exists(src))
-                    RuntimeDependencies.Add("$(TargetOutputDir)/" + dep, src);
-            }
-        }
+			if (!File.Exists(pqSrc))
+			{
+				throw new BuildException($"libpq not found. Checked: {pqFromLib} and {pqFromBin}");
+			}
+
+			// Link against the actual file we found
+			PublicAdditionalLibraries.Add(pqSrc);
+
+			// Stage that same file next to the target binary
+			RuntimeDependencies.Add("$(TargetOutputDir)/" + soName, pqSrc);
+
+			// Optional deps: prefer lib/, fall back to bin/
+			string[] deps = [ "libssl.so.3", "libcrypto.so.3 "];
+			foreach (var dep in deps)
+			{
+				var depFromLib = Path.Combine(libPath, dep);
+				var depFromBin = Path.Combine(binPath, dep);
+				var depSrc = File.Exists(depFromLib) ? depFromLib : depFromBin;
+				if (File.Exists(depSrc))
+				{
+					RuntimeDependencies.Add("$(TargetOutputDir)/" + dep, depSrc);
+				}
+			}
+		}
         else if (Target.Platform == UnrealTargetPlatform.Mac)
         {
-            string LibPath = Path.Combine(ThirdPartyPath, "lib", "Mac");
-            string BinPath = Path.Combine(ThirdPartyPath, "bin", "Mac");
+            var libPath = Path.Combine(thirdPartyPath, "lib", "Mac");
+            var binPath = Path.Combine(thirdPartyPath, "bin", "Mac");
 
-            PublicAdditionalLibraries.Add(Path.Combine(LibPath, "libpq.dylib"));
-            RuntimeDependencies.Add("$(TargetOutputDir)/libpq.dylib", Path.Combine(BinPath, "libpq.dylib"));
+            PublicAdditionalLibraries.Add(Path.Combine(libPath, "libpq.dylib"));
+            RuntimeDependencies.Add("$(TargetOutputDir)/libpq.dylib", Path.Combine(binPath, "libpq.dylib"));
 
-            string[] Deps = { "libssl.3.dylib", "libcrypto.3.dylib" };
-            foreach (var dep in Deps)
-            {
-                string src = Path.Combine(BinPath, dep);
-                if (File.Exists(src))
-                    RuntimeDependencies.Add("$(TargetOutputDir)/" + dep, src);
-            }
+            string[] deps = [ "libssl.3.dylib", "libcrypto.3.dylib" ];
+            foreach (var dep in deps)
+			{
+				var depSrcLib = Path.Combine(libPath, dep);
+				var depSrcBin = Path.Combine(binPath, dep);
+				var depSrc = File.Exists(depSrcLib) ? depSrcLib : depSrcBin;
+				if (File.Exists(depSrc))
+				{
+					RuntimeDependencies.Add("$(TargetOutputDir)/" + dep, depSrc);
+				}
+			}
         }
     }
 }
