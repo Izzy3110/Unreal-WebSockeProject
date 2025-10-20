@@ -91,3 +91,4 @@ Plugins/Postgres/ThirdParty/PostgreSQL/postgresql-17.6-2-windows-x64-binaries/
 *.db-shm
 Content/MWLandscapeAutoMaterial/
 Content/UltraDynamicSky/
+Content/Spawner/
