@@ -3,7 +3,13 @@
     <words>
       <w>athian</w>
       <w>canthasaksiri</w>
+      <w>libcrypto</w>
+      <w>libiconv</w>
+      <w>libintl</w>
+      <w>liblz</w>
       <w>libpq</w>
+      <w>libwinpthread</w>
+      <w>libzstd</w>
       <w>llibrary</w>
       <w>ntddi</w>
       <w>peerawit</w>
