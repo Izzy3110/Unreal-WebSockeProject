@@ -2,7 +2,6 @@
 #include <MQTTAsync.h>
 
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "MQTTClientHelper.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMQTTMessageReceived, const FString&, Payload);
@@ -30,8 +29,8 @@ public:
 
 private:
 	// ✅ Paho MQTTAsync callback signatures
-	static void OnConnectionLost(void* context, char* cause);
-	static int OnMessageArrived(void* context, char* topicName, int topicLen, MQTTAsync_message* message);
+	static void OnConnectionLost(void* Context, char* Cause);
+	static int OnMessageArrived(void* Context, char* TopicName, int TopicLen, MQTTAsync_message* Message);
 
 private:
 	void* Client = nullptr;

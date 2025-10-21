@@ -41,20 +41,20 @@ bool UMQTTClientHelper::Publish(const FString& Topic, const FString& Message, in
 	return rc == MQTTASYNC_SUCCESS;
 }
 
-void UMQTTClientHelper::OnConnectionLost(void* context, char* cause)
+void UMQTTClientHelper::OnConnectionLost(void* Context, char* Cause)
 {
-	if (UMQTTClientHelper* Self = static_cast<UMQTTClientHelper*>(context))
+	if (UMQTTClientHelper* Self = static_cast<UMQTTClientHelper*>(Context))
 	{
 		Self->bConnected = false;
-		UE_LOG(LogTemp, Warning, TEXT("MQTT connection lost: %hs"), cause ? cause : "unknown");
+		UE_LOG(LogTemp, Warning, TEXT("MQTT connection lost: %hs"), Cause ? Cause : "unknown");
 	}
 }
 
-int UMQTTClientHelper::OnMessageArrived(void* context, char* topicName, int topicLen, MQTTAsync_message* message)
+int UMQTTClientHelper::OnMessageArrived(void* Context, char* TopicName, int TopicLen, MQTTAsync_message* Message)
 {
-	if (UMQTTClientHelper* Self = static_cast<UMQTTClientHelper*>(context))
+	if (UMQTTClientHelper* Self = static_cast<UMQTTClientHelper*>(Context))
 	{
-		const FString Payload = UTF8_TO_TCHAR(static_cast<char*>(message->payload));
+		const FString Payload = UTF8_TO_TCHAR(static_cast<char*>(Message->payload));
 
 		AsyncTask(ENamedThreads::GameThread, [Self, Payload]()
 		{
@@ -62,8 +62,8 @@ int UMQTTClientHelper::OnMessageArrived(void* context, char* topicName, int topi
 		});
 	}
 
-	MQTTAsync_freeMessage(&message);
-	MQTTAsync_free(topicName);
+	MQTTAsync_freeMessage(&Message);
+	MQTTAsync_free(TopicName);
 	return 1;
 }
 

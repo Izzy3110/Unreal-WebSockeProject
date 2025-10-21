@@ -15,9 +15,9 @@ public class MQTTPlugin : ModuleRules
             "Engine"]);
 
         // --- ThirdParty setup ---
-        string thirdPartyPath = Path.Combine(ModuleDirectory, "../../ThirdParty/paho");
-        string includePath = Path.Combine(thirdPartyPath, "include");
-        string libPath = Path.Combine(thirdPartyPath, "lib", Target.Platform.ToString());
+        var thirdPartyPath = Path.Combine(ModuleDirectory, "../../ThirdParty/paho");
+        var includePath = Path.Combine(thirdPartyPath, "include");
+        var libPath = Path.Combine(thirdPartyPath, "lib", Target.Platform.ToString());
 
         PublicIncludePaths.Add(includePath);
 
