@@ -3,26 +3,23 @@ using System.IO;
 
 public class MQTTPlugin : ModuleRules
 {
-    public MQTTPlugin(ReadOnlyTargetRules Target) : base(Target)
+    public MQTTPlugin(ReadOnlyTargetRules target) : base(target)
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
         PublicIncludePaths.Add(Path.Combine(ModuleDirectory, "Public"));
         PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "Private"));
 
-        PublicDependencyModuleNames.AddRange(new string[]
-        {
-            "Core",
+        PublicDependencyModuleNames.AddRange(["Core",
             "CoreUObject",
-            "Engine"
-        });
+            "Engine"]);
 
         // --- ThirdParty setup ---
-        string ThirdPartyPath = Path.Combine(ModuleDirectory, "../../ThirdParty/paho");
-        string IncludePath = Path.Combine(ThirdPartyPath, "include");
-        string LibPath = Path.Combine(ThirdPartyPath, "lib", Target.Platform.ToString());
+        string thirdPartyPath = Path.Combine(ModuleDirectory, "../../ThirdParty/paho");
+        string includePath = Path.Combine(thirdPartyPath, "include");
+        string libPath = Path.Combine(thirdPartyPath, "lib", Target.Platform.ToString());
 
-        PublicIncludePaths.Add(IncludePath);
+        PublicIncludePaths.Add(includePath);
 
         // --- Default Unreal behavior ---
         bEnableExceptions = true;
@@ -31,14 +28,14 @@ public class MQTTPlugin : ModuleRules
         // --- Platform specific linking ---
         if (Target.Platform == UnrealTargetPlatform.Win64)
         {
-            string LibName = "paho-mqtt3a.lib";
-            string FullLibPath = Path.Combine(LibPath, LibName);
-            PublicAdditionalLibraries.Add(FullLibPath);
+            const string libName = "paho-mqtt3a.lib";
+            var fullLibPath = Path.Combine(libPath, libName);
+            PublicAdditionalLibraries.Add(fullLibPath);
 
-            string DllPath = Path.Combine(LibPath, "paho-mqtt3a.dll");
-            if (File.Exists(DllPath))
+            var dllPath = Path.Combine(libPath, "paho-mqtt3a.dll");
+            if (File.Exists(dllPath))
             {
-                RuntimeDependencies.Add("$(BinaryOutputDir)/paho-mqtt3a.dll", DllPath);
+                RuntimeDependencies.Add("$(BinaryOutputDir)/paho-mqtt3a.dll", dllPath);
                 PublicDelayLoadDLLs.Add("paho-mqtt3a.dll");
             }
 
@@ -46,11 +43,17 @@ public class MQTTPlugin : ModuleRules
         }
         else if (Target.Platform == UnrealTargetPlatform.Linux)
         {
-            string LibName = "libpaho-mqtt3a.so";
-            string FullLibPath = Path.Combine(LibPath, LibName);
-            PublicAdditionalLibraries.Add(FullLibPath);
+            var libraryPath = Path.Combine(ModuleDirectory, "../../ThirdParty/paho/lib/Linux");
 
-            RuntimeDependencies.Add("$(BinaryOutputDir)/libpaho-mqtt3a.so", FullLibPath);
+            PublicAdditionalLibraries.Add(Path.Combine(libraryPath, "libpaho-mqtt3a.so"));
+
+            // Copy all paho libraries to output
+            foreach (var soFile in Directory.GetFiles(libraryPath, "libpaho-*.so*"))
+            {
+                var fileName = Path.GetFileName(soFile);
+                RuntimeDependencies.Add("$(TargetOutputDir)/" + fileName, soFile);
+            }
+
             PublicDefinitions.Add("WITH_MQTT_LINUX=1");
         }
     }
