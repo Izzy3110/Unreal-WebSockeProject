@@ -7,14 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
-    </list>
+    <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,6 +23,7 @@
     <setting file="file://$PROJECT_DIR$/../EpicGames/UE_5.6/Engine/Source/Runtime/Engine/Private/KismetSystemLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plugins/GridInventory/Source/GridInventoryNodes/Private/GridInventoryNodesTypes.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plugins/GridInventory/Source/GridInventoryNodes/Public/GridInventoryNodesTypes.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Plugins/MySQL/Source/MySQL/MySQL.Build.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plugins/VaRest/Source/VaRest/Private/VaRestJsonParser.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
@@ -36,136 +37,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Uproject.Clean.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Uproject.Clean.executor": "Run",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.intellij.mcpserver.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Uproject.WebSockeProject">
-    <configuration name="Clean" type="Uproject" factoryName="rider.uproject">
-      <configuration_1 setup="1">
-        <option name="CONFIGURATION" value="DebugGame Editor" />
-        <option name="PLATFORM" value="Win64" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/../EpicGames/UE_5.6/Engine/Binaries/Win64/UnrealEditor-Win64-DebugGame.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;I:\WebSockeProject-git\WebSockeProject.uproject&quot;" />
-        <option name="CUSTOM_PROGRAM_PARAMETERS" value="-Parallel" />
-        <option name="WORKING_DIRECTORY" value="I:\EpicGames\UE_5.6" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="1" />
-        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebSockeProject.uproject" />
-      </configuration_1>
-      <configuration_2 setup="1">
-        <option name="CONFIGURATION" value="DebugGame Server" />
-        <option name="PLATFORM" value="Win64" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/Binaries/Win64/WebSockeProjectServer-Win64-DebugGame.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;I:\WebSockeProject-git\WebSockeProject.uproject&quot;" />
-        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
-        <option name="WORKING_DIRECTORY" value="I:\EpicGames\UE_5.6" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="1" />
-        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebSockeProject.uproject" />
-      </configuration_2>
-      <configuration_3 setup="1">
-        <option name="CONFIGURATION" value="DebugGame" />
-        <option name="PLATFORM" value="Win64" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/Binaries/Win64/WebSockeProject-Win64-DebugGame.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value="" />
-        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
-        <option name="WORKING_DIRECTORY" value="I:\EpicGames\UE_5.6" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="1" />
-        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebSockeProject.uproject" />
-      </configuration_3>
-      <configuration_4 setup="1">
-        <option name="CONFIGURATION" value="Development Editor" />
-        <option name="PLATFORM" value="Win64" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/../EpicGames/UE_5.6/Engine/Binaries/Win64/UnrealEditor.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;I:\WebSockeProject-git\WebSockeProject.uproject&quot;" />
-        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
-        <option name="WORKING_DIRECTORY" value="I:\EpicGames\UE_5.6" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="1" />
-        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebSockeProject.uproject" />
-      </configuration_4>
-      <configuration_5 setup="1">
-        <option name="CONFIGURATION" value="Development Server" />
-        <option name="PLATFORM" value="Win64" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/Binaries/Win64/WebSockeProjectServer.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;I:\WebSockeProject-git\WebSockeProject.uproject&quot;" />
-        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
-        <option name="WORKING_DIRECTORY" value="I:\EpicGames\UE_5.6" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="1" />
-        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebSockeProject.uproject" />
-      </configuration_5>
-      <configuration_6 setup="1">
-        <option name="CONFIGURATION" value="Development" />
-        <option name="PLATFORM" value="Win64" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/Binaries/Win64/WebSockeProject.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value="" />
-        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
-        <option name="WORKING_DIRECTORY" value="I:\EpicGames\UE_5.6" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="1" />
-        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebSockeProject.uproject" />
-      </configuration_6>
-      <configuration_7 setup="1">
-        <option name="CONFIGURATION" value="Shipping Server" />
-        <option name="PLATFORM" value="Win64" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/Binaries/Win64/WebSockeProjectServer-Win64-Shipping.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;I:\WebSockeProject-git\WebSockeProject.uproject&quot;" />
-        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
-        <option name="WORKING_DIRECTORY" value="I:\EpicGames\UE_5.6" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="1" />
-        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebSockeProject.uproject" />
-      </configuration_7>
-      <configuration_8 setup="1">
-        <option name="CONFIGURATION" value="Shipping" />
-        <option name="PLATFORM" value="Win64" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/Binaries/Win64/WebSockeProject-Win64-Shipping.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value="" />
-        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
-        <option name="WORKING_DIRECTORY" value="I:\EpicGames\UE_5.6" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="1" />
-        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebSockeProject.uproject" />
-      </configuration_8>
-      <option name="DEFAULT_PROJECT_PATH" value="$PROJECT_DIR$/WebSockeProject.uproject" />
-      <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebSockeProject.uproject" />
-      <option name="AUTO_SELECT_PRIORITY" value="10010" />
-      <method v="2">
-        <option name="CleanProject" projectName="Selected project" />
-        <option name="Build" projectName="Selected project" />
-      </method>
-    </configuration>
+}]]></component>
+  <component name="RunManager">
     <configuration name="WebSockeProject" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
         <option name="CONFIGURATION" value="DebugGame Editor" />
@@ -278,10 +166,6 @@
         <option name="Build" projectName="Selected project" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Uproject.WebSockeProject" />
-      <item itemvalue="Uproject.Clean" />
-    </list>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -303,6 +187,7 @@
       <workItem from="1760755195230" duration="1598000" />
       <workItem from="1760833364100" duration="8875000" />
       <workItem from="1761093295543" duration="1931000" />
+      <workItem from="1761103959181" duration="3725000" />
     </task>
     <servers />
   </component>
