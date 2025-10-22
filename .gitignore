@@ -92,3 +92,5 @@ Plugins/Postgres/ThirdParty/PostgreSQL/postgresql-17.6-2-windows-x64-binaries/
 Content/MWLandscapeAutoMaterial/
 Content/UltraDynamicSky/
 Content/Spawner/
+Plugins/HoudiniNiagara/Content/PointCache/P_on_surface.uasset
+Plugins/HoudiniNiagara/Content/Particles/Systems/HoudiniEventsSimple.uasset
