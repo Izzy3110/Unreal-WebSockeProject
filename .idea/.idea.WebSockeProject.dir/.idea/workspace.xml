@@ -9,6 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,6 +302,7 @@
       <workItem from="1760750595796" duration="2268000" />
       <workItem from="1760755195230" duration="1598000" />
       <workItem from="1760833364100" duration="8875000" />
+      <workItem from="1761093295543" duration="1931000" />
     </task>
     <servers />
   </component>
