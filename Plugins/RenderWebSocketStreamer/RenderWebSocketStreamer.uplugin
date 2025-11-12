@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "RenderWebSocketStreamer",
+	"Description": "Render WebSocket Streamer",
+	"Category": "Other",
+	"CreatedBy": "Sascha Frank",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "RenderWebSocketStreamer",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
