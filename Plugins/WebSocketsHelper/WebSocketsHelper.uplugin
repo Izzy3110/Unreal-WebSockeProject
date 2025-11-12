@@ -13,6 +13,7 @@
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
+    "EnabledByDefault": true,
     "SupportedTargetPlatforms": [ "Win64", "Linux" ],
 	"Modules": [        
 		{

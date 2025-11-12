@@ -31,11 +31,6 @@
 			]
 		},
 		{
-			"Name": "MySQL",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/4a497572d1014beab577112d5a37c813"
-		},
-		{
 			"Name": "WebSocketsHelper",
 			"Enabled": true,
 			"SupportedTargetPlatforms": [
@@ -109,7 +104,7 @@
 		},
 		{
 			"Name": "Buoyancy",
-			"Enabled": false
+			"Enabled": true
 		},
 		{
 			"Name": "Water",
@@ -126,6 +121,48 @@
 		{
 			"Name": "GridInventory",
 			"Enabled": true
+		},
+		{
+			"Name": "BlueprintScreenshotTool",
+			"Enabled": true
+		},
+		{
+			"Name": "CameraCalibration",
+			"Enabled": true
+		},
+		{
+			"Name": "ChaosFlesh",
+			"Enabled": true
+		},
+		{
+			"Name": "EasyXMLParser",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/af98110080a4411a8eaf3b8e931b8655"
+		},
+		{
+			"Name": "CelestialVault",
+			"Enabled": true
+		},
+		{
+			"Name": "LearningAgents",
+			"Enabled": true
+		},
+		{
+			"Name": "StageMonitoring",
+			"Enabled": true
+		},
+		{
+			"Name": "NNEDenoiser",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "Bridge",
+			"Enabled": false
 		},
 		{
 			"Name": "MetaHuman",
