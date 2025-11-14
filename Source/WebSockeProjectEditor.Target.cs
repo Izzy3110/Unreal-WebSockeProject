@@ -9,5 +9,6 @@ public class WebSockeProjectEditorTarget : TargetRules
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_6;
 		
 		ExtraModuleNames.AddRange( ["WebSockeProject"]);
+		bAllowHotReload = false;
 	}
 }
