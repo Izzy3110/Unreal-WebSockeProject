@@ -4,7 +4,7 @@
 	"VersionName": "1.0",
 	"FriendlyName": "LMStudioConnector",
 	"Description": "LMStudio Connector Editor-Plugin",
-	"Category": "Other",
+	"Category": "Editor",
 	"CreatedBy": "Sascha Frank",
 	"CreatedByURL": "",
 	"DocsURL": "",

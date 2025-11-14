@@ -1,10 +1,10 @@
-﻿{
+{
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.0",
 	"FriendlyName": "WebSocketsHelper",
 	"Description": "",
-	"Category": "Other",
+	"Category": "Networking",
 	"CreatedBy": "Peerawit Canthasaksiri",
 	"CreatedByURL": "https://github.com/prwc",
 	"DocsURL": "",
@@ -13,13 +13,17 @@
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
-    "EnabledByDefault": true,
-    "SupportedTargetPlatforms": [ "Win64", "Linux" ],
-	"Modules": [        
+	"EnabledByDefault": true,
+	"SupportedTargetPlatforms": [
+		"Win64",
+		"Linux"
+	],
+	"Modules": [
 		{
 			"Name": "WebSocketsHelper",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
-	]
+	],
+	"SupportURL": ""
 }
