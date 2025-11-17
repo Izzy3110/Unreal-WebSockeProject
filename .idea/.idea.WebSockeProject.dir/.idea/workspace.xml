@@ -7,31 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Private/MobSpawnerActor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Public/MobSpawnerActor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Game/Character/BP_PlayerCharacter (conflicted copy 2025-11-03 230201).uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Game/Character/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/Character/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Game/Levels/Basic_Empty.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/Levels/Basic_Empty.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/LMStudioConnector.uplugin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Resources/Icon128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/LMStudioConnector.Build.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioConnector.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioConnectorModule.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioConnectorSettings.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioConnector.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioConnectorModule.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioConnectorSettings.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Samples/PixelStreaming/WebServers/get_ps_servers.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Samples/PixelStreaming/WebServers/get_ps_servers.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Samples/PixelStreaming2/WebServers/get_ps_servers.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Samples/PixelStreaming2/WebServers/get_ps_servers.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSockeProject.sln" beforeDir="false" afterPath="$PROJECT_DIR$/WebSockeProject.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSockeProject.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/WebSockeProject.uproject" afterDir="false" />
-    </list>
+    <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,8 +21,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../../EpicGames/UE_5.6/Engine/Source/Runtime/Core/Public/Templates/UnrealTemplate.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Private/MobSpawnerActor.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Public/MobSpawnerActor.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -236,7 +210,7 @@
       <workItem from="1763316030224" duration="1969000" />
       <workItem from="1763374797531" duration="92000" />
       <workItem from="1763374917353" duration="5595000" />
-      <workItem from="1763381692435" duration="3220000" />
+      <workItem from="1763381692435" duration="3694000" />
     </task>
     <servers />
   </component>
