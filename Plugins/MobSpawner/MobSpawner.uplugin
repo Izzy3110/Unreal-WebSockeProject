@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "MobSpawner",
+	"Description": "Spawning Enemys in Desired Areas.",
+	"Category": "Other",
+	"CreatedBy": "Sascha Frank",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "MobSpawner",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

@@ -15,24 +15,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f736192f-0d22-465e-90ca-6394aec10049" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Game/Character/BP_PlayerCharacter (conflicted copy 2025-11-03 230201).uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Game/Character/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/Character/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Game/Levels/Basic_Empty.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/Levels/Basic_Empty.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/LMStudioConnector.uplugin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Resources/Icon128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/LMStudioConnector.Build.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioConnector.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioConnectorModule.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioConnectorSettings.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioConnector.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioConnectorModule.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioConnectorSettings.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Samples/PixelStreaming/WebServers/get_ps_servers.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Samples/PixelStreaming/WebServers/get_ps_servers.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Samples/PixelStreaming2/WebServers/get_ps_servers.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Samples/PixelStreaming2/WebServers/get_ps_servers.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSockeProject.sln" beforeDir="false" afterPath="$PROJECT_DIR$/WebSockeProject.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,6 +261,7 @@
       <workItem from="1763128515293" duration="82000" />
       <workItem from="1763133050162" duration="2714000" />
       <workItem from="1763374776852" duration="13000" />
+      <workItem from="1763385791178" duration="20000" />
     </task>
     <servers />
   </component>
