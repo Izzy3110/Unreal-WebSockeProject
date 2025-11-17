@@ -13,21 +13,26 @@ class MOBSPAWNER_API AMobSpawnerRectangle : public AActor
 
 public:
 	AMobSpawnerRectangle();
-
+	virtual ~AMobSpawnerRectangle() override;
 	static constexpr bool bForceSpawnIgnoreCollisionsDefault = false;
 
 	/** Reference point that actors should face */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Spawner|Target")
 	UStaticMeshComponent* TargetSphere;
 
-	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Runtime")
+	// Material property for TargetSphere
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Spawner|Target")
+	UMaterialInterface* TargetSphereMaterial;
+
+	
+	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Runtime")
 	void RandomizeSamplePoints();
 
-	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Runtime")
+	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Runtime")
 	void RandomizeAndSpawnActors();
 	
 	// Rotates all spawned actors to face TargetSphereActor
-	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Runtime")
+	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Runtime")
 	void UpdateSpawnedActorsRotation();
 
 	/** Rectangle size */
@@ -71,7 +76,7 @@ public:
 	int32 MaxSpawnAttemptsPerPoint = 8;
 
 	/** Actors that were spawned by this spawner (transient, cleared by RemoveSpawnedActors) */
-	UPROPERTY(VisibleAnywhere, Transient, Category="Spawner|Runtime")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Spawner|Runtime")
 	TArray<AActor*> SpawnedActors;
 
 	/** Checks if a point is inside the rectangle */
@@ -102,24 +107,24 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Spawner|Debug")
 	void DrawDebugAtSamplePoints(float LifeTime) const;
 
-	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Debug")
+	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Debug")
 	void DrawPersistentDebugRectangle() const;
 
 	/** Draw persistent debug spheres at sample points (LifeTime = -1) */
-	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Debug")
+	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Debug")
 	void DrawPersistentDebugSpheres();
 
 	/** Remove all persistent debug */
-	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Debug")
+	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Debug")
 	void ClearPersistentDebug() const;
 
 	// spawning
 	/** Spawn actors at sample points (round-robin through SpawnablePawns). CallInEditor possible. */
-	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Runtime")
+	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Runtime")
 	void SpawnActorsFromSamples();
 
 	/** Remove and destroy all actors that were spawned by SpawnActorsFromSamples */
-	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Runtime")
+	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Runtime")
 	void RemoveSpawnedActors();
 
 	// ---------------------------

@@ -23,13 +23,31 @@ AMobSpawnerRectangle::AMobSpawnerRectangle()
 		TargetSphere->SetStaticMesh(SphereMesh.Object);
 		TargetSphere->SetWorldScale3D(FVector(0.5f)); // adjust size
 		TargetSphere->SetMobility(EComponentMobility::Movable);
-		TargetSphere->SetMaterial(0, nullptr); // optional: assign yellow material
 		TargetSphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	}
+
+	// Optional default material
+	static ConstructorHelpers::FObjectFinder<UMaterialInterface> DefaultMat(TEXT("/Engine/BasicShapes/BasicShapeMaterial"));
+	if (DefaultMat.Succeeded())
+	{
+		TargetSphereMaterial = DefaultMat.Object;
+		if (TargetSphere)
+		{
+			TargetSphere->SetMaterial(0, TargetSphereMaterial);
+		}
 	}
 }
 
 void AMobSpawnerRectangle::OnConstruction(const FTransform& Transform)
 {
+	Super::OnConstruction(Transform);
+
+	// Apply the material if set
+	if (TargetSphere && TargetSphereMaterial)
+	{
+		TargetSphere->SetMaterial(0, TargetSphereMaterial);
+	}
+	
 	if (!Spline) return;
 
 	// Only rebuild if procedural mode is enabled
@@ -605,5 +623,15 @@ void AMobSpawnerRectangle::RandomizeAndSpawnActors()
 	SpawnActorsFromSamples();
 
 	bDrawDebug = bPrevDrawDebug;
+#endif
+}
+
+AMobSpawnerRectangle::~AMobSpawnerRectangle()
+{
+    // Never call Destroy() here; just clear references.
+    SpawnedActors.Empty();
+
+#if WITH_EDITOR
+    ClearPersistentDebug();
 #endif
 }
