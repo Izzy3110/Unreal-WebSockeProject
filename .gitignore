@@ -115,3 +115,9 @@ Content/Game/_Tests/
 Content/WBP_Wet.uasset
 Content/Game/UI/
 Content/Game/FX/
+Content/Movies/
+Content/Game/To_Migrate/
+*.mp4
+Content/Game/LEDScreen/benjamin-voros-phIFdC6lA4E-unsplash.uasset
+Content/Game/LEDScreen/benjamin-voros-phIFdC6lA4E-unsplash_original.uasset
+Plugins/LMStudioConnector
