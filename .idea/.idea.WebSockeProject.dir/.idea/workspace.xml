@@ -7,7 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="" />
+    <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Public/MobSpawnerRectangle.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Public/MobSpawnerRectangle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Game/Levels/Basic_Empty.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/Levels/Basic_Empty.umap" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +27,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../../EpicGames/UE_5.6/Engine/Source/Runtime/Core/Public/Templates/UnrealTemplate.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Public/MobSpawnerRectangle.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Public/MobSpawnerRectangle.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -45,7 +53,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Uproject.Clean.executor&quot;: &quot;Run&quot;,
     &quot;Uproject.WebSockeProject.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Plugin-MobSpawner&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -210,7 +218,10 @@
       <workItem from="1763316030224" duration="1969000" />
       <workItem from="1763374797531" duration="92000" />
       <workItem from="1763374917353" duration="5595000" />
-      <workItem from="1763381692435" duration="3694000" />
+      <workItem from="1763381692435" duration="3786000" />
+      <workItem from="1763385520591" duration="261000" />
+      <workItem from="1763385815531" duration="16000" />
+      <workItem from="1763385859818" duration="993000" />
     </task>
     <servers />
   </component>
