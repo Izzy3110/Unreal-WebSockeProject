@@ -18,7 +18,7 @@ public:
 	AMobSpawnerRectangle();
 	virtual ~AMobSpawnerRectangle() override;
 
-	/** If true, when spline or properties change in editor we automatically remove and respawn actors */
+	/** If true, when spline or properties change in the editor, we automatically remove and respawn actors */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Spawner|Editor")
 	bool bAutoRespawnOnEdit = true;
 
@@ -43,10 +43,13 @@ public:
 	/** Called when any UObject property is changed in the editor (we listen to this to detect spline edits). */
 	void OnEditorObjectPropertyChanged(UObject* ObjectBeingModified, FPropertyChangedEvent& PropertyChangedEvent);
 
+	/** Register editor delegates */
+	void RegisterEditorDelegates();
+	
 	/** Unregister editor delegates */
 	void UnregisterEditorDelegates();
 #endif
-
+		
 	// Editor controls
 	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Runtime")
 	void RandomizeSamplePoints();
@@ -66,7 +69,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Spawner")
 	USplineComponent* Spline;
 
-	/** Which Pawn classes can be spawned */
+	/** Which Pawn classes can be spawned? */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Spawner|Actor")
 	TArray<TSubclassOf<APawn>> SpawnablePawns;
 
@@ -82,7 +85,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Spawner")
 	float SampleSpacing = 200.0f;
 
-	/** Sample points (exposed so you can inspect in editor) */
+	/** Sample points (exposed so you can inspect in the editor) */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Spawner|Actor")
 	TArray<FVector> SamplePoints;
 
@@ -103,7 +106,7 @@ public:
 	TArray<AActor*> SpawnedActors;
 
 	/** Whether to perform overlap collision checks when generating sample points.
-	  Turn off for editor preview (OnConstruction) if overlap tests give incorrect results in editor. */
+	  Turn off for editor preview (OnConstruction) if overlap tests give incorrect results in the editor. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Spawner|Actor")
 	bool bPerformCollisionCheck = true;
 
@@ -134,13 +137,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Spawner|Spline")
 	bool bProceduralSpline = true;
 
-	// Helpers exposed to Blueprint
-	UFUNCTION(BlueprintCallable, Category="Spawner")
-	bool IsPointInsideSpline(const FVector& Point) const;
-
-	UFUNCTION(BlueprintCallable, Category="Spawner")
-	FVector GetRandomPointInsideSpline() const;
-
 	UFUNCTION(BlueprintCallable, Category="Spawner")
 	TArray<FVector2D> BuildSplinePolygon2D(int32 NumSamples) const;
 
@@ -152,9 +148,6 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category="Spawner|Debug")
 	void DrawDebugAtSamplePoints(float LifeTime) const;
-
-	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Debug")
-	void DrawPersistentDebugRectangle() const;
 
 	UFUNCTION(CallInEditor, BlueprintCallable, Category="Spawner|Controls|Debug")
 	void DrawPersistentDebugSpheres();
@@ -186,7 +179,7 @@ private:
 	bool IsLocationFree(const FVector& WorldLocation, float Radius) const;
 
 #if WITH_EDITOR
-	/** Called after spline or relevant properties were edited in editor. */
+	/** Called after spline or relevant properties were edited in the editor. */
 	void OnSplineEdited();
 #endif
 };

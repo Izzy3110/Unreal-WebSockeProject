@@ -13,7 +13,8 @@ public class MobSpawner : ModuleRules
 			"Engine",
 			"InputCore",
 			"GameplayTags",
-			"RenderCore"
+			"RenderCore",
+			"UnrealEd"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[]

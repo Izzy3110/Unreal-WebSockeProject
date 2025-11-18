@@ -9,6 +9,10 @@
 #include "Engine/EngineTypes.h"
 #include "GameFramework/Pawn.h"
 
+#if WITH_EDITOR
+	#include "Editor.h"
+#endif
+
 AMobSpawnerRectangle::AMobSpawnerRectangle()
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -44,13 +48,45 @@ AMobSpawnerRectangle::AMobSpawnerRectangle()
 
 AMobSpawnerRectangle::~AMobSpawnerRectangle()
 {
-	// Clean transient references
-	RemoveSpawnedActors();
-
 #if WITH_EDITOR
 	ClearPersistentDebug();
 #endif
+
+	// Only try to destroy spawned actors if the object/world is valid
+	if (!HasAnyFlags(RF_BeginDestroyed | RF_FinishDestroyed))
+	{
+		RemoveSpawnedActors();
+	}
 }
+
+#if WITH_EDITOR
+#include "Editor.h"
+#include "Editor/UnrealEd/Public/Editor.h"
+
+void AMobSpawnerRectangle::RegisterEditorDelegates()
+{
+	if (!GEditor) return;
+
+	// Avoid multiple registration
+	UnregisterEditorDelegates();
+
+	// Listen to property changes on this actor
+	FCoreUObjectDelegates::OnObjectPropertyChanged.AddUObject(this, &AMobSpawnerRectangle::OnEditorObjectPropertyChanged);
+}
+
+void AMobSpawnerRectangle::UnregisterEditorDelegates()
+{
+	if (bHandlingSplineUpdate)
+		return;
+
+	bHandlingSplineUpdate = true;
+
+	// Unregister from the global property changed delegate
+	FCoreUObjectDelegates::OnObjectPropertyChanged.RemoveAll(this);
+
+	bHandlingSplineUpdate = false;
+}
+#endif
 
 void AMobSpawnerRectangle::OnConstruction(const FTransform& Transform)
 {
@@ -96,11 +132,11 @@ void AMobSpawnerRectangle::OnConstruction(const FTransform& Transform)
 		DrawDebugAtSamplePoints(0.05f);
 	}
 
-	// Update spawned actors orientation if any exist
+	// Update the spawned actors orientation if any exist
 	if (SpawnedActors.Num() > 0)
 		UpdateSpawnedActorsRotation();
 #endif
-
+	
 	// Broadcast optional spline-updated delegate
 	OnSplineUpdated.Broadcast();
 }
@@ -152,24 +188,6 @@ void AMobSpawnerRectangle::Tick(float DeltaTime)
 	}
 }
 
-bool AMobSpawnerRectangle::IsPointInsideSpline(const FVector& Point) const
-{
-	// Simple rectangle test using actor-local coordinates (works for procedural rectangle)
-	const FVector LocalPoint = GetActorTransform().InverseTransformPosition(Point);
-	const float HalfX = Size.X / 2.f;
-	const float HalfY = Size.Y / 2.f;
-
-	const bool bInside = (LocalPoint.X >= -HalfX && LocalPoint.X <= HalfX) &&
-		(LocalPoint.Y >= -HalfY && LocalPoint.Y <= HalfY);
-
-	if (bDrawDebug && GetWorld())
-	{
-		DrawDebugSphere(GetWorld(), Point, DebugPointSize, 12, bInside ? FColor::Green : FColor::Red, false, 0.f);
-	}
-
-	return bInside;
-}
-
 // Helper: point-in-polygon (ray-casting) for 2D polygon
 static bool IsPointInPolygon(const TArray<FVector2D>& Polygon, const FVector2D& Point)
 {
@@ -192,21 +210,27 @@ static bool IsPointInPolygon(const TArray<FVector2D>& Polygon, const FVector2D& 
 
 TArray<FVector2D> AMobSpawnerRectangle::BuildSplinePolygon2D(int32 NumSamples) const
 {
-	TArray<FVector2D> Poly;
-	if (!Spline || NumSamples <= 2) return Poly;
+	TArray<FVector2D> PolyPoints;
+	if (!Spline || NumSamples < 3) return PolyPoints;
 
+	PolyPoints.Reserve(NumSamples);
+	
 	const float SplineLength = Spline->GetSplineLength();
-	if (SplineLength <= 0.f) return Poly;
 
-	const float Spacing = SplineLength / NumSamples;
 	for (int32 i = 0; i < NumSamples; ++i)
 	{
-		const float Distance = FMath::Clamp(i * Spacing, 0.f, SplineLength);
-		const FVector WorldPos = Spline->GetLocationAtDistanceAlongSpline(Distance, ESplineCoordinateSpace::World);
-		Poly.Add(FVector2D(WorldPos.X, WorldPos.Y));
+		float Distance = SplineLength * i / (NumSamples - 1);
+		FVector WorldPos = Spline->GetLocationAtDistanceAlongSpline(Distance, ESplineCoordinateSpace::World);
+
+		// Convert world XY to actor-local XY
+		FVector Local = GetTransform().InverseTransformPosition(WorldPos);
+
+		PolyPoints.Add(FVector2D(Local.X, Local.Y));
 	}
-	return Poly;
+
+	return PolyPoints;
 }
+
 
 static bool FindRandomPointInPolygon(const TArray<FVector2D>& Poly, const FBox2D& BBox, FVector2D& OutPoint, int32 MaxAttempts = 200)
 {
@@ -254,7 +278,7 @@ bool AMobSpawnerRectangle::IsLocationFree(const FVector& WorldLocation, float Ra
 		Params
 	);
 
-	// If blocked only by small Z difference (floor), allow spawning
+	// If blocked only by a small Z difference (floor), allow spawning
 	if (!bFree)
 	{
 		FHitResult Hit;
@@ -301,13 +325,14 @@ TArray<FVector> AMobSpawnerRectangle::CalculateSamplePoints(bool bPerformOverlap
 
 					// determine Z by tracing to ground
 					float GroundZ = 0.f;
-					const FVector CandidateBase(Candidate2D.X, Candidate2D.Y, GetActorLocation().Z);
-					if (!GetGroundZAtLocation(CandidateBase, GroundZ))
+					// Transform candidate (local) to the world for ground trace
+					const FVector CandidateBaseWorld = GetActorTransform().TransformPosition(FVector(Candidate2D.X, Candidate2D.Y, 0.f));
+					if (!GetGroundZAtLocation(CandidateBaseWorld, GroundZ))
 					{
 						GroundZ = GetActorLocation().Z + SpawnHeightOffset;
 					}
 
-					FVector CandidateWorld(Candidate2D.X, Candidate2D.Y, GroundZ);
+					FVector CandidateWorld(CandidateBaseWorld.X, CandidateBaseWorld.Y, GroundZ);
 
 					if (!bCheck || IsLocationFree(CandidateWorld, SpawnCollisionRadius))
 					{
@@ -367,20 +392,6 @@ TArray<FVector> AMobSpawnerRectangle::CalculateSamplePoints(bool bPerformOverlap
 	return OutPoints;
 }
 
-FVector AMobSpawnerRectangle::GetRandomPointInsideSpline() const
-{
-	const float HalfX = Size.X / 2.f;
-	const float HalfY = Size.Y / 2.f;
-	const FVector RandomPoint = GetActorTransform().TransformPosition(
-		FVector(FMath::FRandRange(-HalfX, HalfX), FMath::FRandRange(-HalfY, HalfY), 0.f)
-	);
-
-	if (bDrawDebug && GetWorld())
-		DrawDebugSphere(GetWorld(), RandomPoint, DebugPointSize, 12, DebugColor, false, 0.f);
-
-	return RandomPoint;
-}
-
 void AMobSpawnerRectangle::DrawDebugRectangle(float LifeTime) const
 {
 	if (!Spline || !GetWorld()) return;
@@ -398,6 +409,7 @@ void AMobSpawnerRectangle::DrawDebugRectangle(float LifeTime) const
 		DrawDebugLine(GetWorld(), WorldPoints[i], WorldPoints[(i + 1) % 4], DebugColor_Lines, false, LifeTime, 0, 2.f);
 	}
 }
+
 
 void AMobSpawnerRectangle::DrawDebugAtSamplePoints(float LifeTime) const
 {
@@ -417,11 +429,6 @@ void AMobSpawnerRectangle::DrawDebugAtSamplePoints(float LifeTime) const
 		for (const FVector& Point : SamplePoints)
 			DrawDebugSphere(GetWorld(), Point, DebugPointSize, 12, DebugColor, false, LifeTime, 0, 2.f);
 	}
-}
-
-void AMobSpawnerRectangle::DrawPersistentDebugRectangle() const
-{
-	DrawDebugRectangle(-1.f);
 }
 
 void AMobSpawnerRectangle::DrawPersistentDebugSpheres()
@@ -539,16 +546,25 @@ void AMobSpawnerRectangle::SpawnActorsFromSamples()
 
 void AMobSpawnerRectangle::RemoveSpawnedActors()
 {
-	if (SpawnedActors.Num() == 0) return;
-
-	for (AActor* A : SpawnedActors)
+	// Iterate backwards to safely remove entries
+	for (int32 i = SpawnedActors.Num() - 1; i >= 0; --i)
 	{
-		if (!IsValid(A)) continue;
-		A->Destroy();
+		AActor* Actor = SpawnedActors[i];
+		if (Actor && !Actor->IsActorBeingDestroyed())
+		{
+			UWorld* World = GetWorld();
+			if (World && !World->bIsTearingDown)
+			{
+				Actor->Destroy();
+			}
+		}
+		// Remove reference anyway to avoid dangling pointer
+		SpawnedActors.RemoveAt(i);
 	}
 
 	SpawnedActors.Empty();
 }
+
 
 bool AMobSpawnerRectangle::GetGroundZAtLocation(const FVector& Location, float& OutZ) const
 {
@@ -640,6 +656,28 @@ void AMobSpawnerRectangle::PostEditChangeProperty(FPropertyChangedEvent& Propert
 
 	// For any property changes we treat as "spline edited" (guard prevents recursion)
 	OnSplineEdited();
+}
+
+void AMobSpawnerRectangle::OnEditorObjectPropertyChanged(UObject* ObjectBeingModified, FPropertyChangedEvent& PropertyChangedEvent)
+{
+	if (!bAutoRespawnOnEdit || bHandlingSplineUpdate)
+		return;
+
+	if (ObjectBeingModified != this)
+		return;
+
+	bHandlingSplineUpdate = true;
+
+	FName PropertyName = PropertyChangedEvent.GetPropertyName();
+	if (PropertyName == GET_MEMBER_NAME_CHECKED(AMobSpawnerRectangle, Size) ||
+		PropertyName == GET_MEMBER_NAME_CHECKED(AMobSpawnerRectangle, Spline) ||
+		PropertyName == GET_MEMBER_NAME_CHECKED(AMobSpawnerRectangle, bRequireClosedSpline) ||
+		PropertyName == GET_MEMBER_NAME_CHECKED(AMobSpawnerRectangle, SampleSpacing))
+	{
+		OnSplineEdited();
+	}
+
+	bHandlingSplineUpdate = false;
 }
 #endif
 
