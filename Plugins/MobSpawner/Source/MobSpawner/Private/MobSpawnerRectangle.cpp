@@ -1,5 +1,7 @@
 ﻿#include "MobSpawnerRectangle.h"
 #include "Components/SplineComponent.h"
+#include "Components/StaticMeshComponent.h"
+#include "UObject/ConstructorHelpers.h"
 #include "DrawDebugHelpers.h"
 #include "Math/UnrealMathUtility.h"
 #include "Engine/World.h"
@@ -11,19 +13,21 @@ AMobSpawnerRectangle::AMobSpawnerRectangle()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
+	// Create spline component
 	Spline = CreateDefaultSubobject<USplineComponent>(TEXT("Spline"));
 	RootComponent = Spline;
 
+	// Create a small visual target sphere
 	TargetSphere = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TargetSphere"));
 	TargetSphere->SetupAttachment(RootComponent);
+	TargetSphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	TargetSphere->SetMobility(EComponentMobility::Movable);
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> SphereMesh(TEXT("/Engine/BasicShapes/Sphere.Sphere"));
 	if (SphereMesh.Succeeded())
 	{
 		TargetSphere->SetStaticMesh(SphereMesh.Object);
-		TargetSphere->SetWorldScale3D(FVector(0.5f)); // adjust size
-		TargetSphere->SetMobility(EComponentMobility::Movable);
-		TargetSphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		TargetSphere->SetWorldScale3D(FVector(0.5f));
 	}
 
 	// Optional default material
@@ -38,19 +42,27 @@ AMobSpawnerRectangle::AMobSpawnerRectangle()
 	}
 }
 
+AMobSpawnerRectangle::~AMobSpawnerRectangle()
+{
+	// Clean transient references
+	RemoveSpawnedActors();
+
+#if WITH_EDITOR
+	ClearPersistentDebug();
+#endif
+}
+
 void AMobSpawnerRectangle::OnConstruction(const FTransform& Transform)
 {
 	Super::OnConstruction(Transform);
 
-	// Apply the material if set
+	// Apply material if present
 	if (TargetSphere && TargetSphereMaterial)
-	{
 		TargetSphere->SetMaterial(0, TargetSphereMaterial);
-	}
-	
+
 	if (!Spline) return;
 
-	// Only rebuild if procedural mode is enabled
+	// Rebuild procedural rectangle spline if requested
 	if (bProceduralSpline || Spline->GetNumberOfSplinePoints() == 0)
 	{
 		Spline->ClearSplinePoints(false);
@@ -62,43 +74,42 @@ void AMobSpawnerRectangle::OnConstruction(const FTransform& Transform)
 		Spline->AddSplinePoint(FVector(-Half.X, Half.Y, 0.f), ESplineCoordinateSpace::Local);
 
 		if (bRequireClosedSpline && !Spline->IsClosedLoop())
-		{
 			Spline->SetClosedLoop(true);
-		}
 
 		Spline->UpdateSpline();
 
 		if (TargetSphere)
 		{
-			TargetSphere->SetWorldLocation(GetActorLocation() + FVector(0.f, 0.f, 200.f)); // height offset
+			TargetSphere->SetWorldLocation(GetActorLocation() + FVector(0.f, 0.f, 200.f));
 			TargetSphere->SetMobility(EComponentMobility::Movable);
 			TargetSphere->SetVisibility(true);
 		}
 	}
 
 #if WITH_EDITOR
-	SamplePoints = CalculateSamplePoints(false);
+	// Recalculate sample points (no collision checks in construction/editor preview)
+	SamplePoints = CalculateSamplePoints(true);
+
 	if (bDrawDebug)
 	{
 		DrawDebugRectangle(0.05f);
 		DrawDebugAtSamplePoints(0.05f);
 	}
 
-	// Only update rotations if actors exist
+	// Update spawned actors orientation if any exist
 	if (SpawnedActors.Num() > 0)
-	{
 		UpdateSpawnedActorsRotation();
-	}
 #endif
 
-
+	// Broadcast optional spline-updated delegate
+	OnSplineUpdated.Broadcast();
 }
-
 
 void AMobSpawnerRectangle::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// At runtime recalc points with collision checks
 	SamplePoints = CalculateSamplePoints(bPerformCollisionCheck);
 
 	if (bDrawDebug)
@@ -112,7 +123,7 @@ void AMobSpawnerRectangle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// Your debug drawing (optional)
+	// Optional debug drawing each tick
 	if (bDrawDebug && bDrawDebugEveryTick)
 	{
 		const float Life = DeltaTime * 1.1f;
@@ -122,7 +133,7 @@ void AMobSpawnerRectangle::Tick(float DeltaTime)
 			DrawDebugAtSamplePoints(Life);
 	}
 
-	// Update spawned actors to face TargetSphereActor
+	// Rotate spawned actors to face TargetSphere
 	if (TargetSphere && SpawnedActors.Num() > 0)
 	{
 		const FVector TargetLoc = TargetSphere->GetComponentLocation();
@@ -132,28 +143,26 @@ void AMobSpawnerRectangle::Tick(float DeltaTime)
 			if (!IsValid(Actor)) continue;
 
 			FVector Dir = TargetLoc - Actor->GetActorLocation();
-			Dir.Z = 0; // keep actors upright (yaw only)
+			Dir.Z = 0;
 			if (!Dir.IsNearlyZero())
 			{
-				FRotator Rot = Dir.Rotation();
-				Actor->SetActorRotation(Rot);
+				Actor->SetActorRotation(Dir.Rotation());
 			}
 		}
 	}
 }
 
-
-
 bool AMobSpawnerRectangle::IsPointInsideSpline(const FVector& Point) const
 {
+	// Simple rectangle test using actor-local coordinates (works for procedural rectangle)
 	const FVector LocalPoint = GetActorTransform().InverseTransformPosition(Point);
 	const float HalfX = Size.X / 2.f;
 	const float HalfY = Size.Y / 2.f;
 
 	const bool bInside = (LocalPoint.X >= -HalfX && LocalPoint.X <= HalfX) &&
-						 (LocalPoint.Y >= -HalfY && LocalPoint.Y <= HalfY);
+		(LocalPoint.Y >= -HalfY && LocalPoint.Y <= HalfY);
 
-	if (bDrawDebug)
+	if (bDrawDebug && GetWorld())
 	{
 		DrawDebugSphere(GetWorld(), Point, DebugPointSize, 12, bInside ? FColor::Green : FColor::Red, false, 0.f);
 	}
@@ -161,7 +170,7 @@ bool AMobSpawnerRectangle::IsPointInsideSpline(const FVector& Point) const
 	return bInside;
 }
 
-// --- Helper: point-in-polygon (ray-casting) for 2D polygon ---
+// Helper: point-in-polygon (ray-casting) for 2D polygon
 static bool IsPointInPolygon(const TArray<FVector2D>& Polygon, const FVector2D& Point)
 {
 	const int32 Num = Polygon.Num();
@@ -238,13 +247,13 @@ bool AMobSpawnerRectangle::IsLocationFree(const FVector& WorldLocation, float Ra
 	Params.AddIgnoredActor(this);
 
 	bool bFree = !World->OverlapAnyTestByChannel(
-		WorldLocation, 
-		FQuat::Identity, 
-		SpawnCollisionChannel, 
-		Shape, 
+		WorldLocation,
+		FQuat::Identity,
+		SpawnCollisionChannel,
+		Shape,
 		Params
 	);
-	
+
 	// If blocked only by small Z difference (floor), allow spawning
 	if (!bFree)
 	{
@@ -265,12 +274,10 @@ TArray<FVector> AMobSpawnerRectangle::CalculateSamplePoints(bool bPerformOverlap
 	if (!Spline) return OutPoints;
 
 	const bool bCheck = bPerformOverlapTest && bPerformCollisionCheck;
-	
+
 	const float SplineLength = Spline->GetSplineLength();
 
-	// --------------------------
-	// 1) Interior polygon sampling
-	// --------------------------
+	// 1) Interior polygon sampling (only if closed)
 	if (bRequireClosedSpline && Spline->IsClosedLoop())
 	{
 		const int32 NumPolySamples = FMath::Max(4, FMath::FloorToInt(SplineLength / FMath::Max(1.f, SampleSpacing)));
@@ -292,11 +299,12 @@ TArray<FVector> AMobSpawnerRectangle::CalculateSamplePoints(bool bPerformOverlap
 					if (!FindRandomPointInPolygon(Poly2D, BBox, Candidate2D))
 						break;
 
-					// Corrected: use world coordinates directly
+					// determine Z by tracing to ground
 					float GroundZ = 0.f;
-					if (!GetGroundZAtLocation(FVector(Candidate2D.X, Candidate2D.Y, GetActorLocation().Z), GroundZ))
+					const FVector CandidateBase(Candidate2D.X, Candidate2D.Y, GetActorLocation().Z);
+					if (!GetGroundZAtLocation(CandidateBase, GroundZ))
 					{
-						GroundZ = GetActorLocation().Z + SpawnHeightOffset; // fallback
+						GroundZ = GetActorLocation().Z + SpawnHeightOffset;
 					}
 
 					FVector CandidateWorld(Candidate2D.X, Candidate2D.Y, GroundZ);
@@ -309,7 +317,7 @@ TArray<FVector> AMobSpawnerRectangle::CalculateSamplePoints(bool bPerformOverlap
 					}
 				}
 
-				(void)bFound; // skip if failed
+				(void)bFound; // ignore if we failed this sample
 			}
 
 			if (OutPoints.Num() > 0)
@@ -317,9 +325,7 @@ TArray<FVector> AMobSpawnerRectangle::CalculateSamplePoints(bool bPerformOverlap
 		}
 	}
 
-	// --------------------------
 	// 2) Fallback: sample along spline line
-	// --------------------------
 	if (SplineLength <= 0.f) return OutPoints;
 
 	if (MaxActorCount > 0)
@@ -369,7 +375,7 @@ FVector AMobSpawnerRectangle::GetRandomPointInsideSpline() const
 		FVector(FMath::FRandRange(-HalfX, HalfX), FMath::FRandRange(-HalfY, HalfY), 0.f)
 	);
 
-	if (bDrawDebug)
+	if (bDrawDebug && GetWorld())
 		DrawDebugSphere(GetWorld(), RandomPoint, DebugPointSize, 12, DebugColor, false, 0.f);
 
 	return RandomPoint;
@@ -377,7 +383,7 @@ FVector AMobSpawnerRectangle::GetRandomPointInsideSpline() const
 
 void AMobSpawnerRectangle::DrawDebugRectangle(float LifeTime) const
 {
-	if (!Spline) return;
+	if (!Spline || !GetWorld()) return;
 
 	const FVector Half = FVector(Size.X / 2.f, Size.Y / 2.f, 0.f);
 	const FVector WorldPoints[4] = {
@@ -395,7 +401,7 @@ void AMobSpawnerRectangle::DrawDebugRectangle(float LifeTime) const
 
 void AMobSpawnerRectangle::DrawDebugAtSamplePoints(float LifeTime) const
 {
-	if (!Spline || SamplePoints.Num() == 0) return;
+	if (!Spline || SamplePoints.Num() == 0 || !GetWorld()) return;
 
 	if (bPersistentPreview)
 	{
@@ -421,7 +427,7 @@ void AMobSpawnerRectangle::DrawPersistentDebugRectangle() const
 void AMobSpawnerRectangle::DrawPersistentDebugSpheres()
 {
 #if WITH_EDITOR
-	if (!Spline || SamplePoints.Num() == 0) return;
+	if (!Spline || SamplePoints.Num() == 0 || !GetWorld()) return;
 
 	for (const FVector& Point : SamplePoints)
 		DrawDebugSphere(GetWorld(), Point, DebugPointSize, 12, DebugColor, true, -1.f, 0, 2.f);
@@ -438,12 +444,14 @@ void AMobSpawnerRectangle::ClearPersistentDebug() const
 
 void AMobSpawnerRectangle::SpawnActorsFromSamples()
 {
+	// Remove existing actors first
 	if (SpawnedActors.Num() > 0)
 		RemoveSpawnedActors();
 
 	ClearPersistentDebug();
-	
-	if (!GetWorld())
+
+	UWorld* World = GetWorld();
+	if (!World)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s: SpawnActorsFromSamples: World is null! Cannot spawn."), *GetNameSafe(this));
 		return;
@@ -507,15 +515,14 @@ void AMobSpawnerRectangle::SpawnActorsFromSamples()
 				Direction.Z = 0; // keep upright
 				if (!Direction.IsNearlyZero())
 				{
-					FRotator NewRot = Direction.Rotation();
-					Spawned->SetActorRotation(NewRot);
+					Spawned->SetActorRotation(Direction.Rotation());
 				}
 			}
-			
-			++SpawnedCount;
+
 #if WITH_EDITOR
 			Spawned->SetFlags(RF_Transactional);
 #endif
+			++SpawnedCount;
 			UE_LOG(LogTemp, Log, TEXT("%s: SpawnActorsFromSamples: Spawned '%s' at (%.1f, %.1f, %.1f)"), *GetNameSafe(this), *Spawned->GetName(), Loc.X, Loc.Y, Loc.Z);
 		}
 		else
@@ -578,8 +585,7 @@ void AMobSpawnerRectangle::UpdateSpawnedActorsRotation()
 		Dir.Z = 0; // keep actors upright
 		if (!Dir.IsNearlyZero())
 		{
-			FRotator Rot = Dir.Rotation();
-			Actor->SetActorRotation(Rot);
+			Actor->SetActorRotation(Dir.Rotation());
 		}
 	}
 }
@@ -616,9 +622,10 @@ void AMobSpawnerRectangle::RandomizeAndSpawnActors()
 	bool bPrevDrawDebug = bDrawDebug;
 	bDrawDebug = false; // disable debug during spawning
 
+	// Remove old spawned actors
 	RemoveSpawnedActors();
 
-	
+	// Generate sample points & spawn
 	SamplePoints = CalculateSamplePoints(bPerformCollisionCheck);
 	SpawnActorsFromSamples();
 
@@ -626,12 +633,45 @@ void AMobSpawnerRectangle::RandomizeAndSpawnActors()
 #endif
 }
 
-AMobSpawnerRectangle::~AMobSpawnerRectangle()
-{
-    // Never call Destroy() here; just clear references.
-    SpawnedActors.Empty();
-
 #if WITH_EDITOR
-    ClearPersistentDebug();
+void AMobSpawnerRectangle::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+{
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+
+	// For any property changes we treat as "spline edited" (guard prevents recursion)
+	OnSplineEdited();
+}
 #endif
+
+void AMobSpawnerRectangle::OnSplineEdited()
+{
+	// Avoid recursion
+	if (bHandlingSplineUpdate)
+		return;
+
+	bHandlingSplineUpdate = true;
+
+	// Remove existing spawned actors
+	RemoveSpawnedActors();
+
+	// Recompute sample points (don't use expensive collision checks for a quick preview)
+	SamplePoints = CalculateSamplePoints(bPerformCollisionCheck ? bPerformCollisionCheck : false);
+
+	// Refresh persistent debug if enabled
+	if (bDrawDebug)
+	{
+		ClearPersistentDebug();
+		if (bPersistentPreview)
+			DrawPersistentDebugSpheres();
+		else
+			DrawDebugAtSamplePoints(0.05f);
+	}
+
+	// Auto respawn if enabled and classes assigned
+	if (bAutoRespawnOnEdit && SpawnablePawns.Num() > 0)
+	{
+		SpawnActorsFromSamples();
+	}
+
+	bHandlingSplineUpdate = false;
 }
