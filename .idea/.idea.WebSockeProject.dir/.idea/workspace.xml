@@ -8,12 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Game/Character/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/Character/BP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Game/Levels/Basic_Empty.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/Levels/Basic_Empty.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/MobSpawner.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/MobSpawner.Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Private/MobSpawnerRectangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Private/MobSpawnerRectangle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Public/MobSpawnerRectangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/MobSpawner/Source/MobSpawner/Public/MobSpawnerRectangle.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +176,14 @@
         <option name="Build" projectName="Selected project" />
       </method>
     </configuration>
+    <configuration default="true" type="Uproject" factoryName="rider.uproject">
+      <option name="DEFAULT_PROJECT_PATH" value="" />
+      <option name="PROJECT_FILE_PATH" value="" />
+      <option name="AUTO_SELECT_PRIORITY" value="0" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -230,6 +236,7 @@
       <workItem from="1763415594344" duration="5525000" />
       <workItem from="1763461560716" duration="4500000" />
       <workItem from="1763466141953" duration="418000" />
+      <workItem from="1763548607438" duration="2729000" />
     </task>
     <servers />
   </component>
