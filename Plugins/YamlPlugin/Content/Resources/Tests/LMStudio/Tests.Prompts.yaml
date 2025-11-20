@@ -1,0 +1,7 @@
+# Test.Prompts.yaml
+---
+- model: openai/gpt-oss-20b
+  input: Provide a prime number less than 50. return as a JSON Text with only the
+    value
+  reasoning:
+    effort: low

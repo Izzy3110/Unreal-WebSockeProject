@@ -21,7 +21,9 @@ public class LMStudioConnector : ModuleRules
 				"Settings",
 				"Slate",
 				"SlateCore",
-				"HTTP"
+				"HTTP",
+				"Json",
+				"JsonUtilities"
 			]
 		);
 	}

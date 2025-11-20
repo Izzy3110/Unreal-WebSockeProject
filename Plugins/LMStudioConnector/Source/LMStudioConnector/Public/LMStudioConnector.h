@@ -34,6 +34,6 @@ public:
 	void PrintSettings() const;
 
 	/** Test the server connection via GET request */
-	UFUNCTION(BlueprintCallable, Category="LMStudio")
+	UFUNCTION(CallInEditor, BlueprintCallable, Category="LMStudio")
 	void TestServerConnection(FOnServerTestCompleted OnCompleted);
 };

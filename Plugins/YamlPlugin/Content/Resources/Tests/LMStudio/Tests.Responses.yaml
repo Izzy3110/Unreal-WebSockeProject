@@ -1,0 +1,25 @@
+# Test.Responses.yaml
+---
+- id: resp_70490f878c85df21cbbc97d3faf913ce30af773ea2d0321e
+  object: response
+  created_at: 1763649636
+  status: completed
+  model: claude3.5-4b-instruct
+  output:
+  - id: msg_hwxwodek3vq6j4t07newmt
+    type: message
+    role: assistant
+    status: completed
+    content:
+    - type: output_text
+      text: |-
+        {
+          "prime_number": 37
+        }
+  usage:
+    input_tokens: 27
+    output_tokens: 12
+    total_tokens: 39
+    output_tokens_details:
+      reasoning_tokens: 0
+  previous_response_id: 
