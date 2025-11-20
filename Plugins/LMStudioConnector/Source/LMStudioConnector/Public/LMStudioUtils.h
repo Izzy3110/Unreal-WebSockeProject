@@ -23,4 +23,13 @@ public:
 	 */
 	UFUNCTION(BlueprintPure, Category = "LMStudio|Utils")
 	static FString CreateLMStudioRequestJSON(const FString& Model, const FString& SystemPrompt, const FString& UserMessage, float Temperature = 0.7f);
+
+	/**
+	 * Extracts the text content from an LM Studio JSON response.
+	 * Expected format: output[0].content[0].text
+	 * @param JsonResponse The JSON string response from LM Studio.
+	 * @return The extracted text, or empty string if not found.
+	 */
+	UFUNCTION(BlueprintPure, Category = "LMStudio|Utils")
+	static FString ExtractOutputContentText(const FString& JsonResponse);
 };

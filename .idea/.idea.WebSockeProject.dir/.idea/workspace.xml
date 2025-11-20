@@ -8,17 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/YamlPlugin/ThirdParty/yaml-cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Game/LMStudio/BP_Connector.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/LMStudio/BP_Connector.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Game/Levels/Basic_Empty.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/Levels/Basic_Empty.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/LMStudioConnector.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/LMStudioConnector.Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioConnector.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioConnector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSockeProject.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/WebSockeProject.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/LMStudioConnector.uplugin" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/LMStudioConnector.uplugin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioUtils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioUtils.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioUtils.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,25 +57,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Uproject.Clean.executor": "Run",
-    "Uproject.WebSockeProject.executor": "Run",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CodeLensConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Uproject.Clean.executor&quot;: &quot;Run&quot;,
+    &quot;Uproject.WebSockeProject.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CodeLensConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="WebSockeProject" type="Uproject" factoryName="rider.uproject">
       <configuration_1 setup="1">
@@ -252,6 +246,7 @@
       <workItem from="1763635417384" duration="4457000" />
       <workItem from="1763639906682" duration="1720000" />
       <workItem from="1763648139344" duration="6186000" />
+      <workItem from="1763656757493" duration="384000" />
     </task>
     <servers />
   </component>

@@ -35,3 +35,36 @@ FString ULMStudioUtils::CreateLMStudioRequestJSON(const FString& Model, const FS
 
 	return OutputString;
 }
+
+FString ULMStudioUtils::ExtractOutputContentText(const FString& JsonResponse)
+{
+	TSharedPtr<FJsonObject> RootObject;
+	TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(JsonResponse);
+
+	if (FJsonSerializer::Deserialize(Reader, RootObject) && RootObject.IsValid())
+	{
+		const TArray<TSharedPtr<FJsonValue>>* OutputArray;
+		if (RootObject->TryGetArrayField("output", OutputArray) && OutputArray->Num() > 0)
+		{
+			TSharedPtr<FJsonObject> OutputObject = (*OutputArray)[0]->AsObject();
+			if (OutputObject.IsValid())
+			{
+				const TArray<TSharedPtr<FJsonValue>>* ContentArray;
+				if (OutputObject->TryGetArrayField("content", ContentArray) && ContentArray->Num() > 0)
+				{
+					TSharedPtr<FJsonObject> ContentObject = (*ContentArray)[0]->AsObject();
+					if (ContentObject.IsValid())
+					{
+						FString Text;
+						if (ContentObject->TryGetStringField("text", Text))
+						{
+							return Text;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return FString();
+}
