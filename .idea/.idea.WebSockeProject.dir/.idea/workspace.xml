@@ -7,13 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/LMStudioConnector.uplugin" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/LMStudioConnector.uplugin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioUtils.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioUtils.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioUtils.h" afterDir="false" />
-    </list>
+    <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -246,7 +240,7 @@
       <workItem from="1763635417384" duration="4457000" />
       <workItem from="1763639906682" duration="1720000" />
       <workItem from="1763648139344" duration="6186000" />
-      <workItem from="1763656757493" duration="384000" />
+      <workItem from="1763656757493" duration="1081000" />
     </task>
     <servers />
   </component>
