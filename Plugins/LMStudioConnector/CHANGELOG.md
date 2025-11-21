@@ -29,3 +29,9 @@ All notable changes to this project will be documented in this file.
 ## [1.3.0] - 2025-11-21
 ### Added
 - Request logging to file: Appends execution statistics (Time, Model, Status, Duration, URL, Prompt, Response) to `AppData/Roaming/WebSockeProject/Logs/LMStudio/requests-<timestamp>.log`.
+
+## [1.4.0] - 2025-11-21
+### Added
+- `ULMStudioAgentComponent`: New Actor Component to handle agent actions via JSON strings.
+    - Parses JSON for `value` field (e.g., `PLAYER_MOVE_FORWARD`).
+    - Executes movement/jump on the owning Pawn/Character.
