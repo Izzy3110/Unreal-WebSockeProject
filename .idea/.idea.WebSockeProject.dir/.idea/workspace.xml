@@ -7,7 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="" />
+    <list default="true" id="8c2adaaa-0f25-4aa0-8fd8-d3adb9a09562" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebSockeProject.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Game/LMStudio/BP_Connector.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/LMStudio/BP_Connector.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Game/LMStudio/WBP_AIChat.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/LMStudio/WBP_AIChat.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Game/LMStudio/WBP_AIChat_Input.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Game/LMStudio/WBP_AIChat_Input.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioConnector.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioConnector.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioRequest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioRequest.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Private/LMStudioUtils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioConnectorSettings.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioConnectorSettings.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioRequest.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/LMStudioConnector/Source/LMStudioConnector/Public/LMStudioRequest.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -241,6 +252,7 @@
       <workItem from="1763639906682" duration="1720000" />
       <workItem from="1763648139344" duration="6186000" />
       <workItem from="1763656757493" duration="1081000" />
+      <workItem from="1763711346687" duration="5198000" />
     </task>
     <servers />
   </component>

@@ -23,9 +23,21 @@ public:
 	 * @param ServerURL The full URL to the endpoint (e.g., http://localhost:1234/v1/chat/completions)
 	 * @param APIKey The API Key for authentication (optional)
 	 * @param JsonContent The JSON body of the request
+	 * @param LastResponses Array of previous assistant responses to append to the conversation history
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"), Category = "LMStudio")
-	static ULMStudioRequest* SendLMStudioRequest(UObject* WorldContextObject, const FString& ServerURL, const FString& APIKey, const FString& JsonContent);
+	static ULMStudioRequest* SendLMStudioRequest(UObject* WorldContextObject, const FString& ServerURL, const FString& APIKey, const FString& JsonContent, const TArray<FString>& LastResponses);
+
+	/**
+	 * Sends a simplified request to LM Studio.
+	 * @param ServerURL The full URL to the endpoint.
+	 * @param APIKey The API Key for authentication (optional).
+	 * @param PromptPlainText The user's input message.
+	 * @param ModelName The model identifier (optional).
+	 * @param LastResponses Array of previous assistant responses to append to the conversation history.
+	 */
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject", AutoCreateRefTerm = "ModelName, LastResponses"), Category = "LMStudio")
+	static ULMStudioRequest* SendLMStudioRequestSimple(UObject* WorldContextObject, const FString& ServerURL, const FString& APIKey, const FString& PromptPlainText, const FString& ModelName, const TArray<FString>& LastResponses);
 
 	virtual void Activate() override;
 
@@ -41,4 +53,10 @@ private:
 	FString ServerURL;
 	FString APIKey;
 	FString JsonContent;
+	TArray<FString> LastResponses;
+
+	// Logging members
+	double StartTime;
+	FString LogPrompt;
+	FString LogModel;
 };

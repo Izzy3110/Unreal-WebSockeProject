@@ -12,7 +12,7 @@ class LMSTUDIOCONNECTOR_API ULMStudioConnectorSettings : public UObject
 public:
 
 	UPROPERTY(config, EditAnywhere, Category="LMStudio")
-	FString ServerBaseURL = TEXT("http://localhost:1234/v1");
+	FString ServerBaseURL = TEXT("http://localhost:3000/v1");
 
 	UPROPERTY(config, EditAnywhere, Category="LMStudio")
 	FString ModelName = TEXT("google/gemma-3-3b");

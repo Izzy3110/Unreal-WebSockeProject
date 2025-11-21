@@ -7,7 +7,7 @@
 
 ULMStudioConnector::ULMStudioConnector()
 {
-	ServerBaseURL = TEXT("http://localhost:1234/v1");
+	ServerBaseURL = TEXT("http://localhost:3000/v1");
 	ModelName = TEXT("google/gemma-3-3b");
 	APIKey = TEXT("lm-studio");
 }
